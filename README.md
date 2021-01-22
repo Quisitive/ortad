@@ -11,4 +11,4 @@ This repo contains all the ARM Templates and PowerShell scripts needed to deploy
 -----
  ### Deploy [Azure Data Platform Development VM](code/infrastructure/arm/workstation/dev-vm/README.md)
 
-[![Deploy To Azure](media/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzureArchitecture%2Fazure-deploy%2Fmaster%2Fcode%2Finfrastructure%2Farm%2Fworkstation%2Fdev-vm%2Fazuredeploy.json)
+[![Deploy To Azure](media/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fquisitive%2Fortad%2Fmain%2F%2Fcode%2Finfrastructure%2Farm%2Fworkstation%2Fdev-vm%2Fazuredeploy.json)
