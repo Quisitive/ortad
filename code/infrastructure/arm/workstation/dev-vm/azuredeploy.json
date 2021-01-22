@@ -1,0 +1,226 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "type": "string",
+      "defaultValue": "devAdmin",
+      "metadata": {
+        "description": "Username for the Virtual Machine."
+      }
+    },
+    "adminPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Password for the Virtual Machine."
+      }
+    },
+    "baseName": {
+      "type": "string",
+      "defaultValue": "company tag",
+      "metadata": {
+        "description": "Base name string used for naming resources such as the VM Name, NIC, Public IP etc."
+      }
+    },
+    "rdpPort": {
+      "type": "int",
+      "defaultValue": 3389,
+      "minValue": 0,
+      "maxValue": 65535,
+      "metadata": {
+        "description": "TCP port for RDP connection. Default should be 3389. Acceptable value between 0 and 65535."
+      }
+    },
+    "location": {
+      "metadata": {
+        "description": "The location for the resources"
+      },
+      "type": "string",
+      "minLength": 1,
+      "allowedValues": [
+        "centralus",
+        "eastus",
+        "eastus2",
+        "northcentralus",
+        "southcentralus",
+        "westcentralus",
+        "westus",
+        "westus2"
+      ],
+      "defaultValue": "eastus"
+    }
+  },
+  "variables": {
+    "storageAccountName": "[concat(toLower(parameters('baseName')), uniquestring(resourceGroup().id))]",
+    "vmName": "[concat(parameters('baseName'),'-vm')]",
+    "virtualNetworkName": "[concat(parameters('baseName'),'-vnet')]",
+    "nicName": "[concat(variables('vmName'),'-nic1')]",
+    "addressPrefix": "10.0.0.0/16",
+    "subnetName": "sub",
+    "subnetPrefix": "10.0.0.0/24",
+    "publicIPAddressName": "[concat(variables('vmName'),'-pubip')]",
+    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
+    "dnsLabelPrefix": "[concat(toLower(variables('vmName')), substring(uniqueString( resourceGroup().id ), 0, 5))]",
+    "_artifactsLocation": "[deployment().properties.templateLink.uri]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2018-11-01",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2019-09-01",
+      "name": "[variables('publicIPAddressName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic",
+        "dnsSettings": {
+          "domainNameLabel": "[variables('dnsLabelPrefix')]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2019-09-01",
+      "name": "[variables('virtualNetworkName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[variables('addressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[variables('subnetName')]",
+            "properties": {
+              "addressPrefix": "[variables('subnetPrefix')]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2019-07-01",
+      "name": "[variables('nicName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+      ],
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
+              },
+              "subnet": {
+                "id": "[variables('subnetRef')]"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2019-07-01",
+      "name": "[variables('vmName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+      ],
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "Standard_D2_v2"
+        },
+        "osProfile": {
+          "computerName": "[variables('vmName')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPassword')]"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "MicrosoftWindowsDesktop",
+            "offer": "Windows-10",
+            "sku": "19h2-pro",
+            "version": "latest"
+          },
+          "osDisk": {
+            "createOption": "FromImage",
+            "managedDisk": {
+              "storageAccountType": "StandardSSD_LRS"
+            }
+          },
+          "dataDisks": [
+            {
+              "diskSizeGB": 256,
+              "lun": 0,
+              "createOption": "Empty"
+            }
+          ]
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+            }
+          ]
+        },
+        "diagnosticsProfile": {
+          "bootDiagnostics": {
+            "enabled": true,
+            "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]"
+          }
+        }
+      },
+      "resources": [
+        {
+          "name": "SetupDevEnvironment",
+          "type": "extensions",
+          "location": "[parameters('location')]",
+          "apiVersion": "2015-06-15",
+          "dependsOn": [
+            "[variables('vmName')]"
+          ],
+          "tags": {
+            "displayName": "SetupDevEnvironment"
+          },
+          "properties": {
+            "publisher": "Microsoft.Compute",
+            "type": "CustomScriptExtension",
+            "typeHandlerVersion": "1.8",
+            "autoUpgradeMinorVersion": true,
+            "settings": {
+              "fileUris": [
+                "[concat(uri(variables('_artifactsLocation'), 'DSC/buildvm.ps1'))]",
+                "[concat(uri(variables('_artifactsLocation'), 'files/dpi30.ico'))]"
+              ],
+
+              "commandToExecute": "[concat('powershell -ExecutionPolicy bypass -File ', 'buildvm.ps1', ' -rdpPort ', parameters('rdpPort'))]"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "outputs": {
+    "RDPConnectionDetails": {
+      "type": "string",
+      "value": "[concat(reference(variables('publicIPAddressName')).dnsSettings.fqdn, ':', parameters('rdpPort'))]"
+    }
+  }
+}

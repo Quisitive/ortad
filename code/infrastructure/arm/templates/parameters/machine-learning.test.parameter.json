@@ -1,0 +1,75 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "Owner": {
+      "value": "owner@company.org"
+    },
+    "StartDate": {
+      "value": "01/01/2020"
+    },
+    "ApplicationName": {
+      "value": "MLDS"
+    },
+    "workspaceName": {
+      "value": "mlw-yazy-mlds-tst"
+    },
+    "ServiceClass": {
+      "value": "Gold"
+    },
+    "Approver": {
+      "value": "approver@company.org"
+    },
+    "keyVaultName": {
+      "value": "kv-yazy-mlds-tst"
+    },
+    "ContainerName": {
+      "value": "aci-yazy-mlds-tst"
+    },
+    "BudgetAmount": {
+      "value": "$150-Month"
+    },
+    "EndDate": {
+      "value": "12/31/9999"
+    },
+    "PublicAccess": {
+      "value": "None"
+    },
+    "DR": {
+      "value": "Mission-Critical"
+    },
+    "AccessTier": {
+      "value": "Hot"
+    },
+    "CostCenter": {
+      "value": "8675-309"
+    },
+    "BusinessUnit": {
+      "value": "ADAP"
+    },
+    "applicationInsightsName": {
+      "value": "appi-yazy-mlds-tst"
+    },
+    "StorageAccountName": {
+      "value": "stgyazymldststusce"
+    },
+    "ResourceGroupName": {
+      "value": "rg-yazy-smoke-usw2"
+    },
+    "StorageKind": {
+      "value": "StorageV2"
+    },
+    "Env": {
+      "value": "tst"
+    },
+    "Requester": {
+      "value": "requester@company.org"
+    },
+    "AccountType": {
+      "value": "Standard_LRS"
+    },
+    "sku": {
+      "value": "basic"
+    }
+  }
+}

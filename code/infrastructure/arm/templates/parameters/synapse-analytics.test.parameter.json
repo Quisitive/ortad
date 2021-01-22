@@ -1,0 +1,63 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "Owner": {
+      "value": "owner@company.org"
+    },
+    "StartDate": {
+      "value": "01/01/2020"
+    },
+    "ApplicationName": {
+      "value": "ADAP"
+    },
+    "sqlAdministratorLoginPassword": {
+      "value": null
+    },
+    "Approver": {
+      "value": "approver@company.org"
+    },
+    "DataLakeStoreName": {
+      "value": "adlsyazyadaptst"
+    },
+    "ServiceClass": {
+      "value": "Gold"
+    },
+    "sqlAdmin": {
+      "value": "sqlAdmin"
+    },
+    "DR": {
+      "value": "Mission-Critical"
+    },
+    "Env": {
+      "value": "dev"
+    },
+    "DataLakeFileSystem": {
+      "value": "synyazyadaptst01"
+    },
+    "CostCenter": {
+      "value": "20200801"
+    },
+    "BusinessUnit": {
+      "value": "ADAP"
+    },
+    "ResourceGroupName": {
+      "value": "rg-yazy-smoke-usw2"
+    },
+    "EndDate": {
+      "value": "12/31/9999"
+    },
+    "synapseAnalyticsWorkspace": {
+      "value": "synyazyadaptst01"
+    },
+    "Requester": {
+      "value": "requester@company.org"
+    },
+    "BudgetAmount": {
+      "value": "$0-Month"
+    },
+    "allowAllConnections": {
+      "value": false
+    }
+  }
+}

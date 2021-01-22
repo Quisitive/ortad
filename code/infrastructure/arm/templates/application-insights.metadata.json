@@ -1,0 +1,11 @@
+{
+  "$schema": "https://tinyurl.com/arm-templates-metadata-schema#",
+  "dateUpdated": "2020-04-22",
+  "description": "This template creates a Application Insights Instance in the same resource group.",
+  "docUrl": "https://azure.microsoft.com/en-us/services/machine-learning/",
+  "githubUsername": "AzureArchitecture",
+  "itemDisplayName": "AzureApplication Insights Instance Deployment",
+  "securityControls": "TBD",
+  "summary": "Creates and deploys a Application Insights Instance.",
+  "type": "SubscriptionDeployment"
+}

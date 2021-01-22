@@ -1,0 +1,63 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "bastionHostName": {
+      "value": "rg-yazy-shared-tst-cus"
+    },
+    "SharedResourceGroupName": {
+      "value": "rg-yazy-shared-dev-usce"
+    },
+    "NetworkResourceGroupName": {
+      "value": "rg-yazy-network-dev-usce"
+    },
+    "publicIpAddressName": {
+      "value": "bast-yazy-network-tst-cus-ip"
+    },
+    "virtualNetworkName": {
+      "value": "vnet-yazy-dev"
+    },
+    "subnetName": {
+      "value": "AzureBastionSubnet"
+    },
+    "StartDate": {
+      "value": "1-1-2020"
+    },
+    "ApplicationName": {
+      "value": "ADAP"
+    },
+    "Approver": {
+      "value": "approver@company.org"
+    },
+    "ServiceClass": {
+      "value": "Gold"
+    },
+    "EndDate": {
+      "value": "12-31-9999"
+    },
+    "DR": {
+      "value": "Mission-Critical"
+    },
+    "CostCenter": {
+      "value": "8675-309"
+    },
+    "Owner": {
+      "value": "owner@company.org"
+    },
+    "BusinessUnit": {
+      "value": "CORP"
+    },
+    "ResourceGroupName": {
+      "value": "rg-yazy-smoke-usw2"
+    },
+    "Env": {
+      "value": "test"
+    },
+    "Requester": {
+      "value": "requester@company.org"
+    },
+    "BudgetAmount": {
+      "value": "$200-Month"
+    }
+  }
+}

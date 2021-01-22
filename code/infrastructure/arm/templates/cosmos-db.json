@@ -1,0 +1,55 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "CosmosDbAccountName": {
+      "type": "string"
+    },
+    "virtualNetworkName": {
+      "type": "string"
+    },
+    "defaultSubnetName": {
+      "type": "string"
+    },
+    "networkResourceGroup": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "locationName": "[if(equals([resourceGroup().location], 'eastus'), 'East US', if(equals([resourceGroup().location], 'eastus2'), 'East US 2',if(equals([resourceGroup().location], 'westus'), 'West US', if(equals([resourceGroup().location], 'westus2'), 'West US 2', if(equals([resourceGroup().location], 'centralus'), 'Central US', if(equals([resourceGroup().location], 'northcentralus'), 'North Central US', if(equals([resourceGroup().location], 'southcentralus'), 'South Central US', if(equals([resourceGroup().location], 'westcentralus'), 'West Central US', 'East US')))]",
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-12-12",
+      "kind": "GlobalDocumentDB",
+      "type": "Microsoft.DocumentDb/databaseAccounts",
+      "name": "[parameters('CosmosDbAccountName')]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "databaseAccountOfferType": "Standard",
+        "locations": [
+          {
+            "id": "[concat(parameters('CosmosDbAccountName'), '-', [resourceGroup().location])]",
+            "failoverPriority": 0,
+            "locationName": "[variables('locationName')]"
+          }
+        ],
+        "enableMultipleWriteLocations": false,
+        "isVirtualNetworkFilterEnabled": true,
+        "virtualNetworkRules": [
+          {
+            "id": "[concat('/subscriptions/',[subscription().subscriptionId], '/resourceGroups/', parameters('networkResourceGroup'),'/providers/Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'), '/subnets/',parameters('defaultSubnetName'))]"
+          }
+        ],
+        "ipRangeFilter": "104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26",
+        "dependsOn": [],
+        "capabilities": []
+      },
+      "tags": {
+        "defaultExperience": "Core (SQL)",
+        "hidden-cosmos-mmspecial": ""
+      }
+    }
+  ],
+  "outputs": {}
+}

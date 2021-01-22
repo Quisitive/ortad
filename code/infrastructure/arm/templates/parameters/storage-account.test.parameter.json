@@ -1,0 +1,57 @@
+﻿{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "Owner": {
+      "value": "owner@company.org"
+    },
+    "StartDate": {
+      "value": "1-1-2020"
+    },
+    "ApplicationName": {
+      "value": "ADAP"
+    },
+    "Requester": {
+      "value": "requester@company.org"
+    },
+    "Approver": {
+      "value": "approver@company.org"
+    },
+    "ServiceClass": {
+      "value": "Gold"
+    },
+    "EndDate": {
+      "value": "12-31-9999"
+    },
+    "DR": {
+      "value": "Mission-Critical"
+    },
+    "AccessTier": {
+      "value": "Hot"
+    },
+    "CostCenter": {
+      "value": "8675-309"
+    },
+    "BusinessUnit": {
+      "value": "CORP"
+    },
+    "StorageAccountName": {
+      "value": "stgyazyadaptstusw2"
+    },
+    "ResourceGroupName": {
+      "value": "rg-qui-smoke-usw2"
+    },
+    "AccountType": {
+      "value": "Standard_LRS"
+    },
+    "Env": {
+      "value": "tst"
+    },
+    "StorageKind": {
+      "value": "StorageV2"
+    },
+    "BudgetAmount": {
+      "value": "$200-Month"
+    }
+  }
+}

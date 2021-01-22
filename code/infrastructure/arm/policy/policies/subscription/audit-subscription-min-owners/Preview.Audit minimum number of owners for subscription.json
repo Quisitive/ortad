@@ -1,0 +1,53 @@
+{
+ "Name":  "09024ccc-0c5f-475e-9457-b7c0d9ed487b",
+ "ResourceId":  "/providers/Microsoft.Authorization/policyDefinitions/09024ccc-0c5f-475e-9457-b7c0d9ed487b",
+ "ResourceName":  "09024ccc-0c5f-475e-9457-b7c0d9ed487b",
+ "ResourceType":  "Microsoft.Authorization/policyDefinitions",
+ "Properties":  {
+        "displayName":  "[Preview]: Audit minimum number of owners for subscription",
+        "policyType":  "BuiltIn",
+        "mode":  "All",
+        "description":  "It is recommended to designate more than one subscription owner in order to have administrator access redundancy.",
+        "metadata":  {
+             "category":  "Security Center",
+             "preview":  true
+            },
+        "parameters":  {
+              "effect":  {
+                   "type":  "String",
+                   "metadata":  {
+                         "displayName":  "Effect",
+                         "description":  "Enable or disable the execution of the policy"
+                       },
+                   "allowedValues":  [
+                          "AuditIfNotExists",
+                          "Disabled"
+                         ],
+                   "defaultValue":  "AuditIfNotExists"
+                  }
+             },
+        "policyRule":  {
+              "if":  {
+                  "field":  "type",
+                  "equals":  "Microsoft.Resources/subscriptions"
+                },
+              "then":  {
+                  "effect":  "Audit",
+                  "details":  {
+                        "type":  "Microsoft.Security/complianceResults",
+                        "name":  "DesignateMoreThanOneOwner",
+                        "existenceCondition":  {
+                                 "field":  "Microsoft.Security/complianceResults/resourceStatus",
+                                 "in":  [
+                                    "Monitored",
+                                    "NotApplicable",
+                                    "OffByPolicy",
+                                    "Healthy"
+                                   ]
+                               }
+                      }
+                 }
+             }
+      },
+ "PolicyDefinitionId":  "/providers/Microsoft.Authorization/policyDefinitions/09024ccc-0c5f-475e-9457-b7c0d9ed487b"
+}
