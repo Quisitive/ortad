@@ -73,7 +73,9 @@
         "name": "Standard_LRS"
       },
       "kind": "Storage",
-      "properties": {}
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
     },
     {
       "type": "Microsoft.Network/publicIPAddresses",
