@@ -45,7 +45,9 @@
         "southcentralus",
         "westcentralus",
         "westus",
-        "westus2"
+        "westus2",
+        "canadacentral",
+        "canadaeast"
       ],
       "defaultValue": "eastus"
     }
