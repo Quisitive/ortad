@@ -139,7 +139,9 @@
           "southcentralus",
           "westcentralus",
           "westus",
-          "westus2"
+          "westus2",
+          "canadacentral",
+          "canadaeast"
         ],
         "routesJumpboxes": [
           {
