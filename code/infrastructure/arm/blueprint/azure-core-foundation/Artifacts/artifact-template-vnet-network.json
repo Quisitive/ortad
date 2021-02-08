@@ -214,686 +214,828 @@
             }
           }
         ],
+        "CanadaCentral": {
+          "controlPlane": [
+            {
+              "name": "SqlManagement_controlPlane_primary",
+              "properties": {
+                "addressPrefix": "52.237.28.86/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup1",
+              "properties": {
+                "addressPrefix": "40.85.224.249/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup2",
+              "properties": {
+                "addressPrefix": "13.88.249.189/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup3",
+              "properties": {
+                "addressPrefix": "20.38.144.32/29",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "controlPlane_SqlManagementTag": [
+            {
+              "name": "SqlManagement_controlPlane_az01",
+              "properties": {
+                "addressPrefix": "104.211.81.160/27",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az02",
+              "properties": {
+                "addressPrefix": "52.167.106.224/27",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az03",
+              "properties": {
+                "addressPrefix": "40.71.13.192/27",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "runners": [
+            {
+              "name": "SqlManagement_automation_backup",
+              "properties": {
+                "addressPrefix": "52.185.145.40/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_automation_primary",
+              "properties": {
+                "addressPrefix": "52.231.18.160/27",
+                "nextHopType": "Internet"
+              }
+            }
+          ]
+        },
+        "CanadaEast": {
+          "controlPlane": [
+            {
+              "name": "SqlManagement_controlPlane_primary",
+              "properties": {
+                "addressPrefix": "40.86.226.166/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup1",
+              "properties": {
+                "addressPrefix": "52.229.122.195/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup2",
+              "properties": {
+                "addressPrefix": "52.229.123.147/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup3",
+              "properties": {
+                "addressPrefix": "40.69.105.32/29",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "controlPlane_SqlManagementTag": [
+            {
+              "name": "SqlManagement_controlPlane_az01",
+              "properties": {
+                "addressPrefix": "104.211.146.192/27",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az02",
+              "properties": {
+                "addressPrefix": "52.169.6.70/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az03",
+              "properties": {
+                "addressPrefix": "40.70.148.64/27",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "runners": [
+            {
+              "name": "SqlManagement_automation_backup",
+              "properties": {
+                "addressPrefix": "52.175.156.251/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_automation_primary",
+              "properties": {
+                "addressPrefix": "52.228.84.112/28",
+                "nextHopType": "Internet"
+              }
+            }
+          ]
+        },
         "CentralUS": {
-            "controlPlane": [
-                {
-                    "name": "SqlManagement_controlPlane_primary",
-                    "properties": {
-                        "addressPrefix": "23.99.160.139/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_backup1",
-                    "properties": {
-                        "addressPrefix": "13.67.215.62/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_backup2",
-                    "properties": {
-                        "addressPrefix": "52.182.137.15/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "controlPlane_SqlManagementTag": [
-                {
-                    "name": "SqlManagement_controlPlane_az01",
-                    "properties": {
-                        "addressPrefix": "104.208.16.96/27",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_az02",
-                    "properties": {
-                        "addressPrefix": "52.182.138.224/27",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_az03",
-                    "properties": {
-                        "addressPrefix": "13.89.170.224/27",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "runners": [
-                {
-                    "name": "SqlManagement_automation_backup",
-                    "properties": {
-                        "addressPrefix": "40.70.72.228/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_automation_primary",
-                    "properties": {
-                        "addressPrefix": "52.165.237.178/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "DSMS": [
-                {
-                    "name": "SqlManagement_security_primary",
-                    "properties": {
-                        "addressPrefix": "40.113.223.225/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_security_backup",
-                    "properties": {
-                        "addressPrefix": "40.122.151.225/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ]
+          "controlPlane": [
+            {
+              "name": "SqlManagement_controlPlane_primary",
+              "properties": {
+                "addressPrefix": "23.99.160.139/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup1",
+              "properties": {
+                "addressPrefix": "13.67.215.62/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup2",
+              "properties": {
+                "addressPrefix": "52.182.137.15/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "controlPlane_SqlManagementTag": [
+            {
+              "name": "SqlManagement_controlPlane_az01",
+              "properties": {
+                "addressPrefix": "104.208.16.96/27",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az02",
+              "properties": {
+                "addressPrefix": "52.182.138.224/27",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az03",
+              "properties": {
+                "addressPrefix": "13.89.170.224/27",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "runners": [
+            {
+              "name": "SqlManagement_automation_backup",
+              "properties": {
+                "addressPrefix": "40.70.72.228/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_automation_primary",
+              "properties": {
+                "addressPrefix": "52.165.237.178/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "DSMS": [
+            {
+              "name": "SqlManagement_security_primary",
+              "properties": {
+                "addressPrefix": "40.113.223.225/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_security_backup",
+              "properties": {
+                "addressPrefix": "40.122.151.225/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ]
         },
         "EastUS": {
-            "controlPlane": [
-                {
-                    "name": "SqlManagement_controlPlane_primary",
-                    "properties": {
-                        "addressPrefix": "191.238.6.43/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_backup1",
-                    "properties": {
-                        "addressPrefix": "40.121.158.30/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_backup2",
-                    "properties": {
-                        "addressPrefix": "40.79.153.12/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "controlPlane_SqlManagementTag": [
-                {
-                    "name": "SqlManagement_controlPlane_az01",
-                    "properties": {
-                        "addressPrefix": "40.71.10.224/27",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_az02",
-                    "properties": {
-                        "addressPrefix": "40.78.226.224/27",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_az03",
-                    "properties": {
-                        "addressPrefix": "40.79.154.0/27",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_az04",
-                    "properties": {
-                        "addressPrefix": "40.79.154.224/27",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "runners": [
-                {
-                    "name": "SqlManagement_automation_backup",
-                    "properties": {
-                        "addressPrefix": "13.64.155.40/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_automation_primary",
-                    "properties": {
-                        "addressPrefix": "40.71.215.148/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "DSMS": [
-                {
-                    "name": "SqlManagement_security_primary",
-                    "properties": {
-                        "addressPrefix": "23.96.103.225/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_security_backup",
-                    "properties": {
-                        "addressPrefix": "52.170.92.194/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ]
+          "controlPlane": [
+            {
+              "name": "SqlManagement_controlPlane_primary",
+              "properties": {
+                "addressPrefix": "191.238.6.43/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup1",
+              "properties": {
+                "addressPrefix": "40.121.158.30/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup2",
+              "properties": {
+                "addressPrefix": "40.79.153.12/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "controlPlane_SqlManagementTag": [
+            {
+              "name": "SqlManagement_controlPlane_az01",
+              "properties": {
+                "addressPrefix": "40.71.10.224/27",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az02",
+              "properties": {
+                "addressPrefix": "40.78.226.224/27",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az03",
+              "properties": {
+                "addressPrefix": "40.79.154.0/27",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az04",
+              "properties": {
+                "addressPrefix": "40.79.154.224/27",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "runners": [
+            {
+              "name": "SqlManagement_automation_backup",
+              "properties": {
+                "addressPrefix": "13.64.155.40/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_automation_primary",
+              "properties": {
+                "addressPrefix": "40.71.215.148/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "DSMS": [
+            {
+              "name": "SqlManagement_security_primary",
+              "properties": {
+                "addressPrefix": "23.96.103.225/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_security_backup",
+              "properties": {
+                "addressPrefix": "52.170.92.194/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ]
         },
         "EastUS2": {
-            "controlPlane": [
-                {
-                    "name": "SqlManagement_controlPlane_primary",
-                    "properties": {
-                        "addressPrefix": "191.239.224.107/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_backup1",
-                    "properties": {
-                        "addressPrefix": "40.79.84.180/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_backup2",
-                    "properties": {
-                        "addressPrefix": "52.177.185.181/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_backup3",
-                    "properties": {
-                        "addressPrefix": "52.167.104.0/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "controlPlane_SqlManagementTag": [
-                {
-                    "name": "SqlManagement_controlPlane_az01",
-                    "properties": {
-                        "addressPrefix": "104.208.144.96/27",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_az02",
-                    "properties": {
-                        "addressPrefix": "52.167.106.96/27",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_az03",
-                    "properties": {
-                        "addressPrefix": "40.70.146.96/27",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "runners": [
-                {
-                    "name": "SqlManagement_automation_backup",
-                    "properties": {
-                        "addressPrefix": "52.173.243.204/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_automation_primary",
-                    "properties": {
-                        "addressPrefix": "52.225.130.171/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "DSMS": [
-                {
-                    "name": "SqlManagement_security_primary",
-                    "properties": {
-                        "addressPrefix": "191.236.199.225/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_security_backup",
-                    "properties": {
-                        "addressPrefix": "104.209.149.14/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ]
+          "controlPlane": [
+            {
+              "name": "SqlManagement_controlPlane_primary",
+              "properties": {
+                "addressPrefix": "191.239.224.107/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup1",
+              "properties": {
+                "addressPrefix": "40.79.84.180/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup2",
+              "properties": {
+                "addressPrefix": "52.177.185.181/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup3",
+              "properties": {
+                "addressPrefix": "52.167.104.0/26",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "controlPlane_SqlManagementTag": [
+            {
+              "name": "SqlManagement_controlPlane_az01",
+              "properties": {
+                "addressPrefix": "104.208.144.96/27",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az02",
+              "properties": {
+                "addressPrefix": "52.167.106.96/27",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az03",
+              "properties": {
+                "addressPrefix": "40.70.146.96/27",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "runners": [
+            {
+              "name": "SqlManagement_automation_backup",
+              "properties": {
+                "addressPrefix": "52.173.243.204/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_automation_primary",
+              "properties": {
+                "addressPrefix": "52.225.130.171/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "DSMS": [
+            {
+              "name": "SqlManagement_security_primary",
+              "properties": {
+                "addressPrefix": "191.236.199.225/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_security_backup",
+              "properties": {
+                "addressPrefix": "104.209.149.14/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ]
         },
         "NorthCentralUS": {
-            "controlPlane": [
-                {
-                    "name": "SqlManagement_controlPlane_primary",
-                    "properties": {
-                        "addressPrefix": "23.98.55.75/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_backup1",
-                    "properties": {
-                        "addressPrefix": "23.96.178.199/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "controlPlane_SqlManagementTag": [
-                {
-                    "name": "SqlManagement_controlPlane_az00",
-                    "properties": {
-                        "addressPrefix": "52.162.107.128/27",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "runners": [
-                {
-                    "name": "SqlManagement_automation_backup",
-                    "properties": {
-                        "addressPrefix": "40.74.254.227/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_automation_primary",
-                    "properties": {
-                        "addressPrefix": "23.96.185.63/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "DSMS": [
-                {
-                    "name": "SqlManagement_security_primary",
-                    "properties": {
-                        "addressPrefix": "65.52.59.57/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_security_backup",
-                    "properties": {
-                        "addressPrefix": "168.62.244.242/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ]
+          "controlPlane": [
+            {
+              "name": "SqlManagement_controlPlane_primary",
+              "properties": {
+                "addressPrefix": "23.98.55.75/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup1",
+              "properties": {
+                "addressPrefix": "23.96.178.199/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "controlPlane_SqlManagementTag": [
+            {
+              "name": "SqlManagement_controlPlane_az00",
+              "properties": {
+                "addressPrefix": "52.162.107.128/27",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "runners": [
+            {
+              "name": "SqlManagement_automation_backup",
+              "properties": {
+                "addressPrefix": "40.74.254.227/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_automation_primary",
+              "properties": {
+                "addressPrefix": "23.96.185.63/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "DSMS": [
+            {
+              "name": "SqlManagement_security_primary",
+              "properties": {
+                "addressPrefix": "65.52.59.57/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_security_backup",
+              "properties": {
+                "addressPrefix": "168.62.244.242/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ]
         },
         "SouthCentralUS": {
-            "controlPlane": [
-                {
-                    "name": "SqlManagement_controlPlane_primary",
-                    "properties": {
-                        "addressPrefix": "23.98.162.75/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_backup1",
-                    "properties": {
-                        "addressPrefix": "13.66.62.124/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "controlPlane_SqlManagementTag": [
-                {
-                    "name": "SqlManagement_controlPlane_az01",
-                    "properties": {
-                        "addressPrefix": "104.214.19.0/27",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "runners": [
-                {
-                    "name": "SqlManagement_automation_backup",
-                    "properties": {
-                        "addressPrefix": "23.96.243.93/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_automation_primary",
-                    "properties": {
-                        "addressPrefix": "13.84.52.76/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "DSMS": [
-                {
-                    "name": "SqlManagement_security_primary",
-                    "properties": {
-                        "addressPrefix": "104.215.79.225/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_security_backup",
-                    "properties": {
-                        "addressPrefix": "23.102.135.225/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ]
+          "controlPlane": [
+            {
+              "name": "SqlManagement_controlPlane_primary",
+              "properties": {
+                "addressPrefix": "23.98.162.75/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup1",
+              "properties": {
+                "addressPrefix": "13.66.62.124/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "controlPlane_SqlManagementTag": [
+            {
+              "name": "SqlManagement_controlPlane_az01",
+              "properties": {
+                "addressPrefix": "104.214.19.0/27",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "runners": [
+            {
+              "name": "SqlManagement_automation_backup",
+              "properties": {
+                "addressPrefix": "23.96.243.93/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_automation_primary",
+              "properties": {
+                "addressPrefix": "13.84.52.76/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "DSMS": [
+            {
+              "name": "SqlManagement_security_primary",
+              "properties": {
+                "addressPrefix": "104.215.79.225/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_security_backup",
+              "properties": {
+                "addressPrefix": "23.102.135.225/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ]
         },
         "CentralUSeuap": {
-            "controlPlane": [
-                {
-                    "name": "SqlManagement_controlPlane_primary",
-                    "properties": {
-                        "addressPrefix": "52.180.176.154/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "controlPlane_SqlManagementTag": [
-                {
-                    "name": "SqlManagement_controlPlane_az00",
-                    "properties": {
-                        "addressPrefix": "40.78.203.128/27",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "runners": [
-                {
-                    "name": "SqlManagement_automation_backup",
-                    "properties": {
-                        "addressPrefix": "40.70.72.228/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_automation_primary",
-                    "properties": {
-                        "addressPrefix": "40.69.161.215/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "DSMS": [
-                {
-                    "name": "SqlManagement_security_primary",
-                    "properties": {
-                        "addressPrefix": "52.180.179.200/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_security_backup",
-                    "properties": {
-                        "addressPrefix": "52.180.179.241/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ]
+          "controlPlane": [
+            {
+              "name": "SqlManagement_controlPlane_primary",
+              "properties": {
+                "addressPrefix": "52.180.176.154/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "controlPlane_SqlManagementTag": [
+            {
+              "name": "SqlManagement_controlPlane_az00",
+              "properties": {
+                "addressPrefix": "40.78.203.128/27",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "runners": [
+            {
+              "name": "SqlManagement_automation_backup",
+              "properties": {
+                "addressPrefix": "40.70.72.228/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_automation_primary",
+              "properties": {
+                "addressPrefix": "40.69.161.215/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "DSMS": [
+            {
+              "name": "SqlManagement_security_primary",
+              "properties": {
+                "addressPrefix": "52.180.179.200/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_security_backup",
+              "properties": {
+                "addressPrefix": "52.180.179.241/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ]
         },
         "EastUS2euap": {
-            "controlPlane": [
-                {
-                    "name": "SqlManagement_controlPlane_primary",
-                    "properties": {
-                        "addressPrefix": "52.225.188.46/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_backup1",
-                    "properties": {
-                        "addressPrefix": "52.138.89.3/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "controlPlane_SqlManagementTag": [
-                {
-                    "name": "SqlManagement_controlPlane_az01",
-                    "properties": {
-                        "addressPrefix": "40.75.34.64/27",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_az02",
-                    "properties": {
-                        "addressPrefix": "40.74.147.0/27",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_az03",
-                    "properties": {
-                        "addressPrefix": "52.138.90.96/27",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "runners": [
-                {
-                    "name": "SqlManagement_automation_backup",
-                    "properties": {
-                        "addressPrefix": "52.173.243.204/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_automation_primary",
-                    "properties": {
-                        "addressPrefix": "40.79.32.162/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "DSMS": [
-                {
-                    "name": "SqlManagement_security_primary",
-                    "properties": {
-                        "addressPrefix": "52.225.186.89/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_security_backup",
-                    "properties": {
-                        "addressPrefix": "52.225.191.250/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ]
+          "controlPlane": [
+            {
+              "name": "SqlManagement_controlPlane_primary",
+              "properties": {
+                "addressPrefix": "52.225.188.46/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup1",
+              "properties": {
+                "addressPrefix": "52.138.89.3/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "controlPlane_SqlManagementTag": [
+            {
+              "name": "SqlManagement_controlPlane_az01",
+              "properties": {
+                "addressPrefix": "40.75.34.64/27",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az02",
+              "properties": {
+                "addressPrefix": "40.74.147.0/27",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az03",
+              "properties": {
+                "addressPrefix": "52.138.90.96/27",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "runners": [
+            {
+              "name": "SqlManagement_automation_backup",
+              "properties": {
+                "addressPrefix": "52.173.243.204/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_automation_primary",
+              "properties": {
+                "addressPrefix": "40.79.32.162/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "DSMS": [
+            {
+              "name": "SqlManagement_security_primary",
+              "properties": {
+                "addressPrefix": "52.225.186.89/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_security_backup",
+              "properties": {
+                "addressPrefix": "52.225.191.250/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ]
         },
         "WestCentralUS": {
-            "controlPlane": [
-                {
-                    "name": "SqlManagement_controlPlane_primary",
-                    "properties": {
-                        "addressPrefix": "13.78.145.25/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_backup1",
-                    "properties": {
-                        "addressPrefix": "52.161.100.158/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "controlPlane_SqlManagementTag": [
-                {
-                    "name": "SqlManagement_controlPlane_az00",
-                    "properties": {
-                        "addressPrefix": "13.71.195.0/27",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "runners": [
-                {
-                    "name": "SqlManagement_automation_backup",
-                    "properties": {
-                        "addressPrefix": "52.183.64.43/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_automation_primary",
-                    "properties": {
-                        "addressPrefix": "13.78.182.82/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "DSMS": [
-                {
-                    "name": "SqlManagement_security_primary",
-                    "properties": {
-                        "addressPrefix": "52.161.24.60/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_security_backup",
-                    "properties": {
-                        "addressPrefix": "40.77.22.227/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ]
+          "controlPlane": [
+            {
+              "name": "SqlManagement_controlPlane_primary",
+              "properties": {
+                "addressPrefix": "13.78.145.25/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup1",
+              "properties": {
+                "addressPrefix": "52.161.100.158/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "controlPlane_SqlManagementTag": [
+            {
+              "name": "SqlManagement_controlPlane_az00",
+              "properties": {
+                "addressPrefix": "13.71.195.0/27",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "runners": [
+            {
+              "name": "SqlManagement_automation_backup",
+              "properties": {
+                "addressPrefix": "52.183.64.43/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_automation_primary",
+              "properties": {
+                "addressPrefix": "13.78.182.82/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "DSMS": [
+            {
+              "name": "SqlManagement_security_primary",
+              "properties": {
+                "addressPrefix": "52.161.24.60/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_security_backup",
+              "properties": {
+                "addressPrefix": "40.77.22.227/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ]
         },
         "WestUS": {
-            "controlPlane": [
-                {
-                    "name": "SqlManagement_controlPlane_primary",
-                    "properties": {
-                        "addressPrefix": "23.99.34.75/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_backup1",
-                    "properties": {
-                        "addressPrefix": "104.42.238.205/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "controlPlane_SqlManagementTag": [
-                {
-                    "name": "SqlManagement_controlPlane_az00",
-                    "properties": {
-                        "addressPrefix": "40.112.243.128/27",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "runners": [
-                {
-                    "name": "SqlManagement_automation_backup",
-                    "properties": {
-                        "addressPrefix": "13.92.242.41/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_automation_primary",
-                    "properties": {
-                        "addressPrefix": "104.42.96.175/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "DSMS": [
-                {
-                    "name": "SqlManagement_security_primary",
-                    "properties": {
-                        "addressPrefix": "104.42.23.250/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_security_backup",
-                    "properties": {
-                        "addressPrefix": "13.64.66.183/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ]
+          "controlPlane": [
+            {
+              "name": "SqlManagement_controlPlane_primary",
+              "properties": {
+                "addressPrefix": "23.99.34.75/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_backup1",
+              "properties": {
+                "addressPrefix": "104.42.238.205/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "controlPlane_SqlManagementTag": [
+            {
+              "name": "SqlManagement_controlPlane_az00",
+              "properties": {
+                "addressPrefix": "40.112.243.128/27",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "runners": [
+            {
+              "name": "SqlManagement_automation_backup",
+              "properties": {
+                "addressPrefix": "13.92.242.41/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_automation_primary",
+              "properties": {
+                "addressPrefix": "104.42.96.175/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "DSMS": [
+            {
+              "name": "SqlManagement_security_primary",
+              "properties": {
+                "addressPrefix": "104.42.23.250/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_security_backup",
+              "properties": {
+                "addressPrefix": "13.64.66.183/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ]
         },
         "WestUS2": {
-            "controlPlane": [
-                {
-                    "name": "SqlManagement_controlPlane_primary",
-                    "properties": {
-                        "addressPrefix": "13.66.226.202/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "controlPlane_SqlManagementTag": [
-                {
-                    "name": "SqlManagement_controlPlane_az01",
-                    "properties": {
-                        "addressPrefix": "13.66.140.96/27",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_az02",
-                    "properties": {
-                        "addressPrefix": "40.78.242.192/27",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_controlPlane_az03",
-                    "properties": {
-                        "addressPrefix": "40.78.250.128/27",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "runners": [
-                {
-                    "name": "SqlManagement_automation_backup",
-                    "properties": {
-                        "addressPrefix": "13.78.181.246/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_automation_primary",
-                    "properties": {
-                        "addressPrefix": "40.65.124.161/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ],
-            "DSMS": [
-                {
-                    "name": "SqlManagement_security_primary",
-                    "properties": {
-                        "addressPrefix": "13.66.230.240/32",
-                        "nextHopType": "Internet"
-                    }
-                },
-                {
-                    "name": "SqlManagement_security_backup",
-                    "properties": {
-                        "addressPrefix": "104.40.19.34/32",
-                        "nextHopType": "Internet"
-                    }
-                }
-            ]
+          "controlPlane": [
+            {
+              "name": "SqlManagement_controlPlane_primary",
+              "properties": {
+                "addressPrefix": "13.66.226.202/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "controlPlane_SqlManagementTag": [
+            {
+              "name": "SqlManagement_controlPlane_az01",
+              "properties": {
+                "addressPrefix": "13.66.140.96/27",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az02",
+              "properties": {
+                "addressPrefix": "40.78.242.192/27",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_controlPlane_az03",
+              "properties": {
+                "addressPrefix": "40.78.250.128/27",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "runners": [
+            {
+              "name": "SqlManagement_automation_backup",
+              "properties": {
+                "addressPrefix": "13.78.181.246/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_automation_primary",
+              "properties": {
+                "addressPrefix": "40.65.124.161/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ],
+          "DSMS": [
+            {
+              "name": "SqlManagement_security_primary",
+              "properties": {
+                "addressPrefix": "13.66.230.240/32",
+                "nextHopType": "Internet"
+              }
+            },
+            {
+              "name": "SqlManagement_security_backup",
+              "properties": {
+                "addressPrefix": "104.40.19.34/32",
+                "nextHopType": "Internet"
+              }
+            }
+          ]
         },
         "routesUnion": "[if(contains(variables('locations'), tolower(parameters('location'))), union(variables('routesJumpboxes'), variables('routesSAW'), variables('routesRunners'), variables('routesDSMS'), variables(parameters('location')).controlPlane, variables(parameters('location')).controlPlane_SqlManagementTag, variables(parameters('location')).runners, variables(parameters('location')).DSMS), union(variables('routesJumpboxes'), variables('routesSAW'), variables('routesRunners')))]",
         "defaultNSGs": [
