@@ -9,7 +9,7 @@
 ![Best Practice Check](https://azurequickstartsservice.blob.core.windows.net/badges/101-azure-bastion/BestPracticeResult.svg)
 ![Cred Scan Check](https://azurequickstartsservice.blob.core.windows.net/badges/101-azure-bastion/CredScanResult.svg)
 
-[![Deploy To Azure](../../../../../media/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fquisitive%2Fortad%2Ffeature-bastion-service%2F%2Fcode%2Finfrastructure%2Farm%2Fmain%2Fbastion%2Fazuredeploy.json)
+[![Deploy To Azure](../../../../../media/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fquisitive%2Fortad%2Ffeature-bastion-service%2Fcode%2Finfrastructure%2Farm%2Fmain%2Fbastion%2Fazuredeploy.json)
 [![Visualize](../../../../../media/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2Fquisitive%2Fortad%2Fmain%2Fcode%2Finfrastructure%2Farm%2Fworkstation%2Fbastion%2Fazuredeploy.json)
 
 This template will deploy Azure Bastion in a new or existing Azure Virtual Network, along with dependent resources:
