@@ -4,6 +4,27 @@
   "parameters": {
       "bastion-host-name": {
         "value": "GEN-UNIQUE-8"
-    }
+    },
+    "virtualNetworkId": {
+      "value": "vnet-chp-dev"
+    },
+    "virtualMachineName": {
+      "value": "vm-chp-ds-cus"
+    },
+    "subnetName": {
+      "value": "snet-chp-dev-dsvm"
+    },
+    "virtualNetworkRG": {
+      "value": "rg-chp-network-dev-usce"
+    },
+    "adminUsername": {
+      "value": "vmAdmin"
+    },
+    "adminPassword": {
+      "value": "Z1!xcvbnmnbvcxzz"
+    },
+            "networkSecurityGroups_nsg_adap_deploy_name": {
+            "value": "nsg-adap-deploy"
+        }
   }
 }
