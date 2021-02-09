@@ -2,29 +2,36 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "bastion-host-name": {
-        "value": "GEN-UNIQUE-8"
+    "bastion-host-name": {
+      "value": "GEN-UNIQUE-8"
     },
-    "virtualNetworkId": {
+    "virtualNetworkId": 
+    {
       "value": "vnet-chp-dev"
     },
-    "virtualMachineName": {
+    "virtualMachineName": 
+    {
       "value": "vm-chp-ds-cus"
     },
-    "subnetName": {
+    "subnetName": 
+    {
       "value": "snet-chp-dev-dsvm"
     },
-    "virtualNetworkRG": {
+    "virtualNetworkRG": 
+    {
       "value": "rg-chp-network-dev-usce"
     },
-    "adminUsername": {
+    "adminUsername": 
+    {
       "value": "vmAdmin"
     },
-    "adminPassword": {
+    "adminPassword": 
+    {
       "value": "Z1!xcvbnmnbvcxzz"
     },
-            "networkSecurityGroups_nsg_adap_deploy_name": {
-            "value": "nsg-adap-deploy"
-        }
+    "networkSecurityGroups_nsg_adap_deploy_name":
+    {
+      "value": "nsg-adap-deploy"
+    }
   }
 }
