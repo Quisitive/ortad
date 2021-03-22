@@ -24,7 +24,7 @@
       }
     },
     "sqlServerAdminPassword": {
-      "defaultValue": "Z1!xcvbnmnbvcxz",
+      "defaultValue": "ChangeMe!",
       "type": "string",
       "metadata": {
         "description": "The Azure SQL Server Administrator (SA) password"
