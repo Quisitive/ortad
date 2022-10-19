@@ -49,7 +49,7 @@
         "canadacentral",
         "canadaeast"
       ],
-      "defaultValue": "eastus"
+      "defaultValue": "westus2"
     }
   },
   "variables": {
@@ -57,9 +57,9 @@
     "vmName": "[concat(parameters('baseName'),'-vm')]",
     "virtualNetworkName": "[concat(parameters('baseName'),'-vnet')]",
     "nicName": "[concat(variables('vmName'),'-nic1')]",
-    "addressPrefix": "10.0.0.0/16",
+    "addressPrefix": "10.0.0.0/24",
     "subnetName": "sub",
-    "subnetPrefix": "10.0.0.0/24",
+    "subnetPrefix": "10.0.0.0/27",
     "publicIPAddressName": "[concat(variables('vmName'),'-pubip')]",
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
     "dnsLabelPrefix": "[concat(toLower(variables('vmName')), substring(uniqueString( resourceGroup().id ), 0, 5))]",
@@ -190,35 +190,7 @@
             "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]"
           }
         }
-      },
-      "resources": [
-        {
-          "name": "SetupDevEnvironment",
-          "type": "extensions",
-          "location": "[parameters('location')]",
-          "apiVersion": "2015-06-15",
-          "dependsOn": [
-            "[variables('vmName')]"
-          ],
-          "tags": {
-            "displayName": "SetupDevEnvironment"
-          },
-          "properties": {
-            "publisher": "Microsoft.Compute",
-            "type": "CustomScriptExtension",
-            "typeHandlerVersion": "1.8",
-            "autoUpgradeMinorVersion": true,
-            "settings": {
-              "fileUris": [
-                "[concat(uri(variables('_artifactsLocation'), 'DSC/buildvm.ps1'))]",
-                "[concat(uri(variables('_artifactsLocation'), 'files/dpi30.ico'))]"
-              ],
-
-              "commandToExecute": "[concat('powershell -ExecutionPolicy bypass -File ', 'buildvm.ps1', ' -rdpPort ', parameters('rdpPort'))]"
-            }
-          }
-        }
-      ]
+      }
     }
   ],
   "outputs": {
