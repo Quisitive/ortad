@@ -53,17 +53,18 @@
           },
           "sku": {
                "metadata": {
-                    "description": "The Windows build version such as 22H2"
+                    "description": "The Windows build version such as win10-22h2-pro"
                },
                "type": "string",
                "minLength": 1,
                "allowedValues": [
-                    "20H2",
-                    "21H1",
-                    "21H2",
-                    "22H2"
+                    "win10-22h2-pro",
+                    "win10-21h2-pro",
+                    "21h1-pro",
+                    "20h2-pro",
+                    "20h1-pro"
                ],
-               "defaultValue": "22H2"
+               "defaultValue": "win10-22h2-pro"
           }
      },
      "variables": {
