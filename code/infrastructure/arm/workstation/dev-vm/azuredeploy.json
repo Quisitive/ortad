@@ -41,11 +41,13 @@
                     "centralus",
                     "eastus",
                     "eastus2",
+                    "eastus3",
                     "northcentralus",
                     "southcentralus",
                     "westcentralus",
                     "westus",
                     "westus2",
+                    "westus3",
                     "canadacentral",
                     "canadaeast"
                ],
@@ -205,35 +207,7 @@
                               "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]"
                          }
                     }
-               },
-               "resources": [
-                    {
-                         "name": "SetupDevEnvironment",
-                         "type": "extensions",
-                         "location": "[parameters('location')]",
-                         "apiVersion": "2015-06-15",
-                         "dependsOn": [
-                              "[variables('vmName')]"
-                         ],
-                         "tags": {
-                              "displayName": "SetupDevEnvironment"
-                         },
-                         "properties": {
-                              "publisher": "Microsoft.Compute",
-                              "type": "CustomScriptExtension",
-                              "typeHandlerVersion": "1.8",
-                              "autoUpgradeMinorVersion": true,
-                              "settings": {
-                                   "fileUris": [
-                                        "[concat(uri(variables('_artifactsLocation'), 'DSC/buildvm.ps1'))]",
-                                        "[concat(uri(variables('_artifactsLocation'), 'files/dpi30.ico'))]"
-                                   ],
-
-                                   "commandToExecute": "[concat('powershell -ExecutionPolicy bypass -File ', 'buildvm.ps1', ' -rdpPort ', parameters('rdpPort'))]"
-                              }
-                         }
-                    }
-               ]
+               }
           }
      ],
      "outputs": {
