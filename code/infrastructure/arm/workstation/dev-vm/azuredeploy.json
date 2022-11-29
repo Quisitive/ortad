@@ -80,7 +80,8 @@
           "subnetName": "sub",
           "bastionSubnetName": "AzureBastionSubnet",
           "subnetPrefix": "10.0.0.0/24",
-          "bastionSubnetPrefix": "10.1.0.0/26",
+          "bastionSubnetPrefix": "10.1.0.0/26",          
+          "bastionHostName": "bs-deploy",
           "publicIPAddressName": "[concat(variables('vmName'),'-pubip')]",
           "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
           "dnsLabelPrefix": "[concat(toLower(variables('vmName')), substring(uniqueString( resourceGroup().id ), 0, 5))]",
@@ -362,6 +363,32 @@
                          }
                     }
                }
+          },
+          {
+                "apiVersion": "2020-05-01",
+                "type": "Microsoft.Network/bastionHosts",
+                "name": "[variables('bastionHostName')]",
+                "location": "[parameters('location')]",
+                "dependsOn": [
+                    "[resourceId('Microsoft.Network/publicIpAddresses', variables('publicIPAddressName'))]",
+                    "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
+                    "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('bastionSubnetName'))]"
+                ],
+                "properties": {
+                    "ipConfigurations": [
+                        {
+                            "name": "IpConf",
+                            "properties": {
+                                "subnet": {
+                                    "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('bastionSubnetName'))]"
+                                },
+                                "publicIPAddress": {
+                                    "id": "[resourceId('Microsoft.Network/publicIpAddresses', variables('publicIPAddressName'))]"
+                                }
+                            }
+                        }
+                    ]
+                }
           }
      ],
      "outputs": {
