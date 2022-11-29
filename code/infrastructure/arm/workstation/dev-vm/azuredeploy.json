@@ -127,15 +127,15 @@
                     },
                     "subnets": [
                          {
-                              "name": "[variables('subnetName')]",
-                              "properties": {
-                                   "addressPrefix": "[variables('subnetPrefix')]"
-                              }
-                         },
-                         {
                               "name": "[variables('bastionSubnetName')]",
                               "properties": {
                                    "addressPrefix": "[variables('bastionSubnetPrefix')]"
+                              }
+                         },
+                         {
+                              "name": "[variables('subnetName')]",
+                              "properties": {
+                                   "addressPrefix": "[variables('subnetPrefix')]"
                               }
                          }
                     ]
