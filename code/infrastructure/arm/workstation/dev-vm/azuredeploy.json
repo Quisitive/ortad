@@ -74,6 +74,7 @@
           "vmName": "[concat(parameters('baseName'),'-vm')]",
           "virtualNetworkName": "[concat(parameters('baseName'),'-vnet')]",
           "nicName": "[concat(variables('vmName'),'-nic1')]",
+          "nsgName": "[concat(variables('baseName'),'-nsg')]",
           "addressPrefix": "10.0.0.0/16",
           "subnetName": "sub",
           "subnetPrefix": "10.0.0.0/24",
@@ -154,6 +155,50 @@
                          }
                     ]
                }
+          },
+        {
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "apiVersion": "2020-05-01",
+            "name": "[variables('nsgName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "RDP_Deny",
+                        "properties": {
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3389",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 180,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "SSH_Deny",
+                        "properties": {
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 190,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            }
           },
           {
                "type": "Microsoft.Compute/virtualMachines",
