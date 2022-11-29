@@ -83,8 +83,10 @@
           "bastionSubnetPrefix": "10.1.0.0/26",          
           "bastionHostName": "bs-deploy",
           "publicIPAddressName": "[concat(variables('vmName'),'-pubip')]",
+          "bastionIPAddressName": "[concat(variables('bastionHostName'),'-pubip')]",
           "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
           "dnsLabelPrefix": "[concat(toLower(variables('vmName')), substring(uniqueString( resourceGroup().id ), 0, 5))]",
+          "bastiondnsLabelPrefix": "[concat(toLower(variables('bastionHostName')), substring(uniqueString( resourceGroup().id ), 0, 5))]",
           "_artifactsLocation": "[deployment().properties.templateLink.uri]"
      },
      "resources": [
@@ -110,6 +112,21 @@
                     "publicIPAllocationMethod": "Dynamic",
                     "dnsSettings": {
                          "domainNameLabel": "[variables('dnsLabelPrefix')]"
+                    }
+               }
+          },
+          {
+               "type": "Microsoft.Network/publicIPAddresses",
+               "apiVersion": "2019-09-01",
+               "name": "[variables('bastionIPAddressName')]",
+               "location": "[parameters('location')]",
+               "sku": {
+                  "name": "Standard"
+               },
+               "properties": {
+                    "publicIPAllocationMethod": "Dynamic",
+                    "dnsSettings": {
+                         "domainNameLabel": "[variables('bastiondnsLabelPrefix')]"
                     }
                }
           },
@@ -376,7 +393,7 @@
                 "name": "[variables('bastionHostName')]",
                 "location": "[parameters('location')]",
                 "dependsOn": [
-                    "[resourceId('Microsoft.Network/publicIpAddresses', variables('publicIPAddressName'))]",
+                    "[resourceId('Microsoft.Network/publicIpAddresses', variables('bastionIPAddressName'))]",
                     "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
                     "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('bastionSubnetName'))]"
                 ],
@@ -389,7 +406,7 @@
                                     "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('bastionSubnetName'))]"
                                 },
                                 "publicIPAddress": {
-                                    "id": "[resourceId('Microsoft.Network/publicIpAddresses', variables('publicIPAddressName'))]"
+                                    "id": "[resourceId('Microsoft.Network/publicIpAddresses', variables('bastionIPAddressName'))]"
                                 }
                             }
                         }
