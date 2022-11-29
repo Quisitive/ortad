@@ -75,9 +75,12 @@
           "virtualNetworkName": "[concat(parameters('baseName'),'-vnet')]",
           "nicName": "[concat(variables('vmName'),'-nic1')]",
           "nsgName": "[concat(parameters('baseName'),'-nsg')]",
-          "addressPrefix": "10.0.0.0/16",
+          "addressPrefix": "10.0.0.0/22",
+          "bastionPrefix": "10.1.0.0/24",
           "subnetName": "sub",
+          "bastionSubnetName": "AzureBastionSubnet",
           "subnetPrefix": "10.0.0.0/24",
+          "bastionSubnetPrefix": "10.1.0.0/26",
           "publicIPAddressName": "[concat(variables('vmName'),'-pubip')]",
           "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
           "dnsLabelPrefix": "[concat(toLower(variables('vmName')), substring(uniqueString( resourceGroup().id ), 0, 5))]",
@@ -117,7 +120,8 @@
                "properties": {
                     "addressSpace": {
                          "addressPrefixes": [
-                              "[variables('addressPrefix')]"
+                              "[variables('addressPrefix')]",
+                              "[variables('bastionPrefix')]"
                          ]
                     },
                     "subnets": [
@@ -125,6 +129,12 @@
                               "name": "[variables('subnetName')]",
                               "properties": {
                                    "addressPrefix": "[variables('subnetPrefix')]"
+                              }
+                         },
+                         {
+                              "name": "[variables('bastionSubnetName')]",
+                              "properties": {
+                                   "addressPrefix": "[variables('bastionSubnetPrefix')]"
                               }
                          }
                     ]
