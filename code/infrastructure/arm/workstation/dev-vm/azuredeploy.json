@@ -198,11 +198,11 @@
                                    }
                               }
                          }
-                    ]
-               },
-               "networkSecurityGroup": {
-                     "id": "[variables('nsgName')]"
-                 }
+                    ],
+                    "networkSecurityGroup": {
+                          "id": "[variables('nsgName')]"
+                    }
+               }
           },
           {
                "type": "Microsoft.Compute/virtualMachines",
