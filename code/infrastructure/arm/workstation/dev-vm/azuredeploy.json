@@ -86,7 +86,6 @@
           "bastionIPAddressName": "[concat(variables('bastionHostName'),'-pubip')]",
           "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
           "dnsLabelPrefix": "[concat(toLower(variables('vmName')), substring(uniqueString( resourceGroup().id ), 0, 5))]",
-          "bastiondnsLabelPrefix": "[concat(toLower(variables('bastionHostName')), substring(uniqueString( resourceGroup().id ), 0, 5))]",
           "_artifactsLocation": "[deployment().properties.templateLink.uri]"
      },
      "resources": [
