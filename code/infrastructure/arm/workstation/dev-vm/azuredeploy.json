@@ -127,12 +127,6 @@
                     },
                     "subnets": [
                          {
-                              "name": "[variables('bastionSubnetName')]",
-                              "properties": {
-                                   "addressPrefix": "[variables('bastionSubnetPrefix')]"
-                              }
-                         },
-                         {
                               "name": "[variables('subnetName')]",
                               "properties": {
                                    "addressPrefix": "[variables('subnetPrefix')]"
@@ -365,6 +359,18 @@
                }
           },
           {
+               "apiVersion": "2018-04-01",
+               "type": "Microsoft.Network/virtualNetworks/subnets",
+               "name": "[concat(variables('virtualNetworkName'), '/', variables('bastionSubnetName'))]",
+               "location": "[parameters('location')]",
+               "dependsOn": [
+                    "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
+                ],
+               "properties": {
+               "addressPrefix": "[variables('bastionSubnetPrefix')]"
+             }
+           },
+           {
                 "apiVersion": "2020-05-01",
                 "type": "Microsoft.Network/bastionHosts",
                 "name": "[variables('bastionHostName')]",
@@ -389,7 +395,7 @@
                         }
                     ]
                 }
-          }
+           }
      ],
      "outputs": {
           "RDPConnectionDetails": {
