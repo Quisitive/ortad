@@ -74,7 +74,7 @@
           "vmName": "[concat(parameters('baseName'),'-vm')]",
           "virtualNetworkName": "[concat(parameters('baseName'),'-vnet')]",
           "nicName": "[concat(variables('vmName'),'-nic1')]",
-          "nsgName": "[concat(variables('baseName'),'-nsg')]",
+          "nsgName": "[concat(parameters('baseName'),'-nsg')]",
           "addressPrefix": "10.0.0.0/16",
           "subnetName": "sub",
           "subnetPrefix": "10.0.0.0/24",
