@@ -9,7 +9,7 @@
                          "properties": {
                               "priority": 1010,
                               "protocol": "TCP",
-                              "access": "Allow",
+                              "access": "Deny",
                               "direction": "Inbound",
                               "sourceApplicationSecurityGroups": [],
                               "destinationApplicationSecurityGroups": [],
@@ -55,7 +55,7 @@
                "value": "rg-chp-network-dev-usce"
           },
           "adminUsername": {
-               "value": "vmAdmin"
+               "value": "devAdmin"
           },
           "adminPassword": {
                "value": "change-me-N0W!"

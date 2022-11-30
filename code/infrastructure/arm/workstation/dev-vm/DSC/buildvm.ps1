@@ -1,14 +1,14 @@
-param(
-    [Parameter(Mandatory = $false)][string]$rdpPort = "3389"
-)
+# param(
+#     [Parameter(Mandatory = $false)][string]$rdpPort = "3389"
+# )
 Process {
   Write-Host "hello world"
 
     #Add RDP listening ports if needed
-    if ($rdpPort -ne 3389) {
-        netsh.exe interface portproxy add v4tov4 listenport=$rdpPort connectport=3389 connectaddress=127.0.0.1
-        netsh.exe advfirewall firewall add rule name="Open Port $rdpPort" dir=in action=allow protocol=TCP localport=$rdpPort
-    }
+#     if ($rdpPort -ne 3389) {
+#         netsh.exe interface portproxy add v4tov4 listenport=$rdpPort connectport=3389 connectaddress=127.0.0.1
+#         netsh.exe advfirewall firewall add rule name="Open Port $rdpPort" dir=in action=allow protocol=TCP localport=$rdpPort
+#     }
 
       Set-ExecutionPolicy Bypass -Scope Process -Force; Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
     . choco.exe feature enable -n=allowGlobalConfirmation
