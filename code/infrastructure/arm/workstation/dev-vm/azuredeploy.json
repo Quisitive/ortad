@@ -210,9 +210,10 @@
                     {
                         "name": "Allow_Bastion_Subnet",
                         "properties": {
+                            "description": "https://docs.microsoft.com/en-us/azure/bastion/bastion-nsg",
                             "protocol": "*",
                             "sourcePortRange": "*",
-                            "sourceAddressPrefix": "10.1.0.0/26",
+                            "sourceAddressPrefix": "variables('bastionSubnetPrefix')",
                             "destinationAddressPrefix": "*",
                             "access": "Allow",
                             "priority": 100,
