@@ -213,7 +213,7 @@
                             "description": "https://docs.microsoft.com/en-us/azure/bastion/bastion-nsg",
                             "protocol": "*",
                             "sourcePortRange": "*",
-                            "sourceAddressPrefix": "variables('bastionSubnetPrefix')",
+                            "sourceAddressPrefix": "[variables('bastionSubnetPrefix')]",
                             "destinationAddressPrefix": "*",
                             "access": "Allow",
                             "priority": 100,
