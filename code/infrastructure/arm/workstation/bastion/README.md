@@ -17,7 +17,7 @@ This template also deploys an Azure Development Windows VM using the latest patc
 
 After the VM is deployed. Open a, Internet Explorer browser with this link to complete the workstations setup.
 
-[![Boxstarter Script](../../../../../md/articles/media/BoxStarterScript.svg)](http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/Quisitive/ortad/main/code/infrastructure/arm/workstation/boxstarter-workstation.ps1)
+[![Boxstarter Script](../../../../../media/BoxStarterScript.svg)](http://boxstarter.org/package/nr/url?https://raw.githubusercontent.com/Quisitive/ortad/main/code/infrastructure/arm/workstation/boxstarter-workstation.ps1)
 
 ```
 Tags: bastion, ortad, onramp, dpi30
