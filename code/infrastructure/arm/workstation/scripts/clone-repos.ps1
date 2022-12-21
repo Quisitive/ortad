@@ -1,21 +1,28 @@
 #
-# Function to create a path if it does not exist
-#
-function CreatePathIfNotExists($pathName) {
-  if(!(Test-Path -Path $pathName)) {
-      New-Item -ItemType directory -Path $pathName
-  }
-}
-
-#
 # Creating my code directories
 #
 $repoCoreDir = "C:\repos"
-CreatePathIfNotExists -pathName "$repoCoreDir"
-CreatePathIfNotExists -pathName "$repoCoreDir\github"
-CreatePathIfNotExists -pathName "$repoCoreDir\azdo"
-CreatePathIfNotExists -pathName "$repoCoreDir\github\AzureArchitecture"
+New-Item -ItemType Directory -Force -Path "$repoCoreDir"
+New-Item -ItemType Directory -Force -Path "$repoCoreDir\github"
+New-Item -ItemType Directory -Force -Path "$repoCoreDir\azdo"
+New-Item -ItemType Directory -Force -Path "$repoCoreDir\github\quisitive"
 
-cd "$repoCoreDir\github\AzureArchitecture"
-git clone https://github.com/AzureArchitecture/azure-deploy.git
-git clone https://github.com/AzureArchitecture/azure-data-services.git
+# import multiple remote git repositories to local Source dir
+
+ param (
+  [string]$localFolder = "$repoCoreDir\github\quisitive",
+  [array]$repos = @("ADAP")
+ )
+$repoLocation = "https://github.com/quisitive/"
+
+# for each repo found remotely, check if it exists locally
+# if dir exists, skip, if not, clone the remote git repo into it
+foreach ($gitRepo in $repos) {
+	If (Test-Path $localFolder\$gitRepo) {
+		echo "repo $gitRepo already exists"
+	}
+	Else {
+		echo "git clone $repoLocation$gitRepo $localFolder\$gitRepo"
+		git clone $repoLocation$gitRepo $localFolder\$gitRepo
+	}
+}

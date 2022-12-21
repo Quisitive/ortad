@@ -1,61 +1,32 @@
-# tools we expect devs across many scenarios will want
-choco install git.install -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install visualstudio2019community --All -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install visualstudio2019-workload-databuildtools --All -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install visualstudio2019-workload-datascience --All -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install visualstudio2019-workload-data --All -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install visualstudio2019-workload-azure --All -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install PowerShell -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install dotnetfx -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install dotnet4.5 -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install dotnet4.6.2 -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install dotnet4.7 -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install netfx-4.7.1-devpack -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install dotnetcore-sdk -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install dotnetcore -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install powershell-core -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install azure-cli -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install microsoftazurestorageexplorer -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install vscode -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install sysinternals -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install office365business -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install adobereader -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install sql-server-management-studio -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install ssis-vs2019 -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install azure-data-studio -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install adobereader -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install azuredatastudio-powershell -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install github-desktop -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install azcopy -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install adobereader -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install rdcman -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install cosmosdbexplorer -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install ignorefiles -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install notepadplusplus -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install vim -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
-choco install paint.net-y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" --Force
+  choco install googlechrome -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  choco install git.install -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
+  choco install azure-cli -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
+  choco install vscode -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
+  choco install github-desktop -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
+  choco install office365proplus -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
+  choco install gitextensions -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
+  choco install vscode-powershell -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  choco install vscode-mssql -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  choco install azure-functions-core-tools -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  choco install vscode-azurerm-tools -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  choco install azcopy10 -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  choco install vscode-vsonline -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  choco install azure-pipelines-agent -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  choco install vscode-azurerepos -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
 
-######################################################
-# Taskbar icons
-######################################################
-Write-Host "DevTools to the TaskBar"
-Install-ChocolateyPinnedTaskBarItem "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe"
-Install-ChocolateyPinnedTaskBarItem "%windir%\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe"
-Install-ChocolateyPinnedTaskBarItem "C:\Windows\explorer.exe"
-Install-ChocolateyPinnedTaskBarItem "C:\Program Files\console\console.exe"
-Write-Host
-
-#add the AZCOPY path to the path variable
-######################################################
-# Add AZCOPY path to the path variable
-######################################################
-Write-Host "Adding Git\bin to the path"
-Add-Path "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy"
-Write-Host
-
-######################################################
-# Add Git to the path
-######################################################
-Write-Host "Adding Git\bin to the path"
-Add-Path "C:\Program Files (x86)\Git\bin"
-Write-Host    
+  # choco install opencommandline -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  # choco install codemaid -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  # choco install stylecop -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  # choco install markdownmonster -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  # choco install azure-data-studio-sql-server-admin-pack -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  # choco install git-credential-manager-for-windows -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
+  # choco install adobereader -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
+  # choco install azure-data-studio -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
+  # choco install azuredatastudio-powershell -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
+  # choco install visualstudio2019community --All -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  # choco install visualstudio2019-workload-azure --All -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
+  # choco install microsoftazurestorageexplorer -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
+  # choco install sql-server-management-studio -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
+  # choco install sourcetree -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  # choco install 7zip.install -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
+  # choco install ssis-vs2019 -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 

@@ -60,36 +60,7 @@ try {
   choco install azure-pipelines-agent -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
   choco install vscode-azurerepos -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
 
-  # choco install opencommandline -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
-  # choco install codemaid -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
-  # choco install stylecop -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
-  # choco install markdownmonster -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
-  # choco install azure-data-studio-sql-server-admin-pack -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
-  # choco install git-credential-manager-for-windows -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
-  # choco install adobereader -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
-  # choco install azure-data-studio -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
-  # choco install azuredatastudio-powershell -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
-  # choco install visualstudio2019community --All -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
-  # choco install visualstudio2019-workload-azure --All -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
-  # choco install microsoftazurestorageexplorer -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
-  # choco install sql-server-management-studio -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
-  # choco install sourcetree -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
-  # choco install 7zip.install -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"
-  # choco install ssis-vs2019 -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache" 
-
   Write-Host
-
-  ######################################################
-  # Taskbar icons
-  ######################################################
-  # Write-Host "Adding Icons to the TaskBar"
-  # Install-ChocolateyPinnedTaskBarItem "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\devenv.exe"
-  # Install-ChocolateyPinnedTaskBarItem "%windir%\system32\WindowsPowerShell\v1.0\PowerShell_ISE.exe"
-  # Install-ChocolateyPinnedTaskBarItem "C:\Windows\explorer.exe"
-  # Install-ChocolateyPinnedTaskBarItem "%windir%\system32\cmd.exe"
-  # Install-ChocolateyPinnedTaskBarItem "C:\Program Files\Google\Chrome\Application\chrome.exe"
-
-  # %windir%\system32\cmd.exe
 
   ######################################################
   # Add to the path
@@ -99,9 +70,31 @@ try {
   Write-Host
 
   $repoCoreDir = "C:\repos"
-  #cd "$repoCoreDir\github\AzureArchitecture"
-  #git clone https://github.com/AzureArchitecture/azure-deploy.git
-  
+	New-Item -ItemType Directory -Force -Path "$repoCoreDir"
+	New-Item -ItemType Directory -Force -Path "$repoCoreDir\github"
+	New-Item -ItemType Directory -Force -Path "$repoCoreDir\azdo"
+	New-Item -ItemType Directory -Force -Path "$repoCoreDir\github\quisitive"
+
+	# import multiple remote git repositories to local Source dir
+
+	 param (
+	  [string]$localFolder = "$repoCoreDir\github\quisitive",
+	  [array]$repos = @("ADAP")
+	 )
+	$repoLocation = "https://github.com/quisitive/"
+
+	# for each repo found remotely, check if it exists locally
+	# if dir exists, skip, if not, clone the remote git repo into it
+	foreach ($gitRepo in $repos) {
+		If (Test-Path $localFolder\$gitRepo) {
+			echo "repo $gitRepo already exists"
+		}
+		Else {
+			echo "git clone $repoLocation$gitRepo $localFolder\$gitRepo"
+			git clone $repoLocation$gitRepo $localFolder\$gitRepo
+		}
+	}  
+
   ######################################################
   # installing windows updates
   ######################################################
