@@ -2,137 +2,118 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="219px"
-   height="34px"
-   viewBox="0 0 210 297"
+   width="43.909069mm"
+   height="8.79918mm"
+   viewBox="0 0 43.909069 8.79918"
    version="1.1"
-   id="svg197"
-   sodipodi:docname="BoxStarterScript.svg"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   id="svg5892"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
-     id="id_boxstarter"
-     pagecolor="#0078D4"
+     id="namedview5894"
+     pagecolor="#ffffff"
      bordercolor="#000000"
      borderopacity="0.25"
      inkscape:showpageshadow="2"
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:document-units="px"
-     showgrid="false"
-     inkscape:zoom="5.0495043"
-     inkscape:cx="109.61472"
-     inkscape:cy="17.031375"
-     inkscape:window-width="3440"
-     inkscape:window-height="1387"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:document-units="mm"
+     showgrid="false" />
   <defs
-     id="defs194">
-    <pattern
-       id="EMFhbasepattern"
-       patternUnits="userSpaceOnUse"
-       width="6"
-       height="6"
-       x="0"
-       y="0" />
+     id="defs5889">
     <clipPath
        clipPathUnits="userSpaceOnUse"
-       id="clipEmfPath1">
+       id="clipEmfPath1-3">
       <path
-         d="M 0,0 L 21.879437,0 L 21.879437,16.628372 L 0,16.628372 z"
-         id="path4825" />
+         d="M 0,-6.1262424 H 168.03408 V 41.133342 H 0 Z"
+         id="path5269" />
     </clipPath>
-    <pattern
-       id="EMFhbasepattern-4"
-       patternUnits="userSpaceOnUse"
-       width="6"
-       height="6"
-       x="0"
-       y="0" />
-    <pattern
-       id="EMFhbasepattern-3"
-       patternUnits="userSpaceOnUse"
-       width="6"
-       height="6"
-       x="0"
-       y="0" />
   </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
-    <path
-       style="fill:#0078d4;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:8.73529"
-       d="M -769.15195,269.36307 H 913.68889 c 25.3238,0 45.8696,-20.54576 45.8696,-45.8696 V 70.594807 c 0,-25.32384 -20.5458,-45.8696 -45.8696,-45.8696 H -769.15195 c -25.32384,0 -45.8696,20.54576 -45.8696,45.8696 V 223.49347 c 0,25.32384 20.54576,45.8696 45.8696,45.8696 z"
-       id="path4962" />
-    <path
-       style="fill:none;stroke:#0078d4;stroke-width:7.64493px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M -769.15195,269.36307 H 913.68889 c 25.3238,0 45.8696,-20.54576 45.8696,-45.8696 V 70.594807 c 0,-25.32384 -20.5458,-45.8696 -45.8696,-45.8696 H -769.15195 c -25.32384,0 -45.8696,20.54576 -45.8696,45.8696 V 223.49347 c 0,25.32384 20.54576,45.8696 45.8696,45.8696 z"
-       id="path4964" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:400;font-size:145.224px;line-height:125%;font-family:'Segoe UI Semibold';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:8.73529"
-       x="-512.09045"
-       y="193.36996"
-       id="text4970"><tspan
-         sodipodi:role="line"
-         x="-512.09045"
-         y="193.36996"
-         id="tspan4968"
-         style="stroke-width:8.73529"><tspan
-           dx="0"
-           dy="0"
-           style="font-style:normal;font-variant:normal;font-weight:400;font-size:145.224px;font-family:'Segoe UI Semibold';fill:#ffffff;stroke-width:8.73529"
-           id="tspan4966">PowerShell</tspan></tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:400;font-size:145.224px;line-height:125%;font-family:'Segoe UI';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:8.73529"
-       x="270.24091"
-       y="193.36996"
-       id="text4976"><tspan
-         sodipodi:role="line"
-         x="270.24091"
-         y="193.36996"
-         id="tspan4974"
-         style="stroke-width:8.73529"><tspan
-           dx="0"
-           dy="0"
-           style="font-style:normal;font-variant:normal;font-weight:400;font-size:145.224px;font-family:'Segoe UI';fill:#ffffff;stroke-width:8.73529"
-           id="tspan4972">BoxStarter</tspan></tspan></text>
-    <path
-       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:8.73529"
-       d="m -699.39194,88.273717 -28.19069,118.018653 h 135.21975 l 28.19069,-118.496463 z"
-       id="path4978" />
-    <path
-       style="fill:none;stroke:#ffffff;stroke-width:7.64493px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m -699.39194,88.273717 -28.19069,118.018653 h 135.21975 l 28.19069,-118.496463 z"
-       id="path4980" />
-    <path
-       style="fill:#0070c0;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:8.73529"
-       d="m -655.91138,187.18004 c 0,2.38904 1.43342,3.82247 2.38904,3.82247 h 36.79123 c 1.43343,0 2.86686,-1.43343 2.86686,-3.82247 v -5.7337 c 0,-1.91124 -1.43343,-3.82247 -2.86686,-3.82247 h -36.79123 c -0.95562,0 -2.38904,1.91123 -2.38904,3.82247 z"
-       id="path4982" />
-    <path
-       style="fill:#0070c0;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:8.73529"
-       d="m -693.65824,190.5247 c 0.47781,0.95561 2.86685,0.95561 5.25589,-0.47781 l 53.99234,-39.18028 c 2.38904,-1.43343 3.34466,-3.82247 2.38904,-4.77808 l -2.38904,-3.34466 c -0.95562,-1.43343 -3.34466,-1.43343 -5.7337,0 l -53.99234,39.18027 c -1.91123,1.43343 -2.86684,3.82247 -1.91123,5.2559 z"
-       id="path4984" />
-    <path
-       style="fill:none;stroke:#0070c0;stroke-width:7.64493px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1"
-       d="m -693.65824,190.5247 c 0.47781,0.95561 2.86685,0.95561 5.25589,-0.47781 l 53.99234,-39.18028 c 2.38904,-1.43343 3.34466,-3.82247 2.38904,-4.77808 l -2.38904,-3.34466 c -0.95562,-1.43343 -3.34466,-1.43343 -5.7337,0 l -53.99234,39.18027 c -1.91123,1.43343 -2.86684,3.82247 -1.91123,5.2559 z"
-       id="path4986" />
-    <path
-       style="fill:#0070c0;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:8.73529"
-       d="m -677.41276,105.95262 c -0.95561,1.43343 -0.47781,3.34466 0.95562,4.77809 l 36.79124,39.65809 c 1.43343,1.43343 3.34466,1.91124 4.77808,0.95561 l 2.86685,-2.86684 c 0.95562,-0.95562 0.95562,-2.86686 -0.4778,-4.77809 l -37.26905,-39.65809 c -1.43343,-1.43342 -3.34467,-1.91123 -4.30028,-0.95561 z"
-       id="path4988" />
-    <path
-       style="fill:none;stroke:#0070c0;stroke-width:7.64493px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1"
-       d="m -677.41276,105.95262 c -0.95561,1.43343 -0.47781,3.34466 0.95562,4.77809 l 36.79124,39.65809 c 1.43343,1.43343 3.34466,1.91124 4.77808,0.95561 l 2.86685,-2.86684 c 0.95562,-0.95562 0.95562,-2.86686 -0.4778,-4.77809 l -37.26905,-39.65809 c -1.43343,-1.43342 -3.34467,-1.91123 -4.30028,-0.95561 z"
-       id="path4990" />
+     id="layer1"
+     transform="translate(-0.86881912,-1.2321468)">
+    <g
+       id="g5861"
+       transform="matrix(0.03563412,0,0,0.03563412,49.348719,0.43189754)"
+       inkscape:export-filename="BoxStarterScript.png"
+       inkscape:export-xdpi="115.4653"
+       inkscape:export-ydpi="115.4653">
+      <path
+         style="fill:#0078d4;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:7.425"
+         d="m -1341.4026,266.13963 h 1194.44915 c 8.5289,0 15.4333,-6.90433 15.4333,-15.43321 V 41.545836 c 0,-8.52888 -6.9044,-15.83935 -15.4333,-15.83935 H -1341.4026 c -8.5288,0 -15.8393,7.31047 -15.8393,15.83935 V 250.70642 c 0,8.52888 7.3105,15.43321 15.8393,15.43321 z"
+         id="path5275"
+         inkscape:export-filename="BoxStarterScript.svg"
+         inkscape:export-xdpi="417.28571"
+         inkscape:export-ydpi="417.28571" />
+      <path
+         style="fill:none;stroke:#0078d4;stroke-width:0.875178px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         clip-path="url(#clipEmfPath1-3)"
+         d="M 3.4460114,33.858429 H 164.31457 c 1.14867,0 2.07855,-0.929876 2.07855,-2.078546 V 3.6101071 c 0,-1.1486704 -0.92988,-2.1332451 -2.07855,-2.1332451 H 3.4460114 c -1.1486705,0 -2.1332452,0.9845747 -2.1332452,2.1332451 V 31.779883 c 0,1.14867 0.9845747,2.078546 2.1332452,2.078546 z"
+         id="path5277"
+         transform="matrix(7.425,0,0,7.425,-1366.9892,14.740786)" />
+      <path
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:7.425"
+         d="m -1247.762,74.036796 -34.1155,144.584794 h 165.2978 l 34.9278,-145.397064 z"
+         id="path5279" />
+      <path
+         style="fill:none;stroke:#ffffff;stroke-width:6.49819px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m -1247.762,74.036796 -34.1155,144.584794 h 165.2978 l 34.9278,-145.397064 z"
+         id="path5281" />
+      <path
+         style="fill:#0070c0;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:7.425"
+         d="m -1194.1519,195.47178 c 0,2.84296 1.2184,4.87364 3.2491,4.87364 h 45.0812 c 1.6246,0 2.843,-2.03068 2.843,-4.87364 v -6.90433 c 0,-2.43683 -1.2184,-4.87364 -2.843,-4.87364 h -45.0812 c -2.0307,0 -3.2491,2.43681 -3.2491,4.87364 z"
+         id="path5283" />
+      <path
+         style="fill:#0070c0;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:7.425"
+         d="m -1240.8577,199.12701 c 1.2185,1.62455 4.0614,1.21841 6.4982,-0.40613 l 66.6065,-47.92417 c 2.4368,-2.03069 3.6553,-4.46752 2.843,-6.09206 l -3.2491,-4.06137 c -0.8123,-1.62456 -4.0614,-1.21842 -6.4982,0.40613 l -66.6065,47.92417 c -2.4368,2.03069 -3.6552,4.46751 -2.4368,6.09206 z"
+         id="path5285" />
+      <path
+         style="fill:none;stroke:#0070c0;stroke-width:6.49819px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1"
+         d="m -1240.8577,199.12701 c 1.2185,1.62455 4.0614,1.21841 6.4982,-0.40613 l 66.6065,-47.92417 c 2.4368,-2.03069 3.6553,-4.46752 2.843,-6.09206 l -3.2491,-4.06137 c -0.8123,-1.62456 -4.0614,-1.21842 -6.4982,0.40613 l -66.6065,47.92417 c -2.4368,2.03069 -3.6552,4.46751 -2.4368,6.09206 z"
+         id="path5287" />
+      <path
+         style="fill:#0070c0;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:7.425"
+         d="m -1220.5508,95.968205 c -1.2184,1.2184 -0.8123,3.655234 0.8123,5.685915 l 45.4873,48.73645 c 1.6246,1.62454 4.0614,2.43682 5.6859,0.81227 l 3.6553,-3.24909 c 1.2184,-1.21842 0.8123,-4.06137 -0.8123,-5.68593 l -45.4873,-48.736444 c -1.6246,-2.03068 -4.0614,-2.43682 -5.686,-1.21841 z"
+         id="path5289" />
+      <path
+         style="fill:none;stroke:#0070c0;stroke-width:6.49819px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1"
+         d="m -1220.5508,95.968205 c -1.2184,1.2184 -0.8123,3.655234 0.8123,5.685915 l 45.4873,48.73645 c 1.6246,1.62454 4.0614,2.43682 5.6859,0.81227 l 3.6553,-3.24909 c 1.2184,-1.21842 0.8123,-4.06137 -0.8123,-5.68593 l -45.4873,-48.736444 c -1.6246,-2.03068 -4.0614,-2.43682 -5.686,-1.21841 z"
+         id="path5291" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:400;font-size:110.447px;line-height:125%;font-family:'Segoe UI Semibold';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.425"
+         x="-990.36432"
+         y="128.70595"
+         id="text5297"><tspan
+           sodipodi:role="line"
+           x="-990.36432"
+           y="128.70595"
+           id="tspan5295"
+           style="stroke-width:7.425"><tspan
+             dx="0"
+             dy="0"
+             style="font-style:normal;font-variant:normal;font-weight:400;font-size:110.447px;font-family:'Segoe UI Semibold';fill:#ffffff;stroke-width:7.425"
+             id="tspan5293">PowerShell</tspan></tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:400;font-size:103.95px;line-height:125%;font-family:'Segoe UI';text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:7.425"
+         x="-990.36432"
+         y="234.41133"
+         id="text5303"><tspan
+           sodipodi:role="line"
+           x="-990.36432"
+           y="234.41133"
+           id="tspan5301"
+           style="stroke-width:7.425"><tspan
+             dx="0"
+             dy="0"
+             style="font-style:normal;font-variant:normal;font-weight:400;font-size:103.95px;font-family:'Segoe UI';fill:#ffffff;stroke-width:7.425"
+             id="tspan5299">BoxStarter Script</tspan></tspan></text>
+    </g>
   </g>
 </svg>
