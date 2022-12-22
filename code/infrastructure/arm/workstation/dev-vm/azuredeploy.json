@@ -1,0 +1,420 @@
+{
+     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+          "adminUsername": {
+               "type": "string",
+               "defaultValue": "devAdmin",
+               "metadata": {
+                    "description": "Username for the Virtual Machine."
+               }
+          },
+          "adminPassword": {
+               "type": "securestring",
+               "metadata": {
+                    "description": "Password for the Virtual Machine."
+               }
+          },
+          "baseName": {
+               "type": "string",
+               "defaultValue": "company tag",
+               "metadata": {
+                    "description": "Base name string used for naming resources such as the VM Name, NIC, Public IP etc."
+               }
+          },
+          "rdpPort": {
+               "type": "int",
+               "defaultValue": 3389,
+               "minValue": 0,
+               "maxValue": 65535,
+               "metadata": {
+                    "description": "TCP port for RDP connection. Default should be 3389. Acceptable value between 0 and 65535."
+               }
+          },
+          "location": {
+               "metadata": {
+                    "description": "The location for the resources"
+               },
+               "type": "string",
+               "minLength": 1,
+               "allowedValues": [
+                    "centralus",
+                    "eastus",
+                    "eastus2",
+                    "eastus3",
+                    "northcentralus",
+                    "southcentralus",
+                    "westcentralus",
+                    "westus",
+                    "westus2",
+                    "westus3",
+                    "canadacentral",
+                    "canadaeast"
+               ],
+               "defaultValue": "eastus"
+          },
+          "sku": {
+               "metadata": {
+                    "description": "The Windows build version such as win10-22h2-pro"
+               },
+               "type": "string",
+               "minLength": 1,
+               "allowedValues": [
+                    "win10-22h2-pro",
+                    "win10-21h2-pro",
+                    "21h1-pro",
+                    "20h2-pro",
+                    "20h1-pro"
+               ],
+               "defaultValue": "win10-22h2-pro"
+          }
+     },
+     "variables": {
+          "storageAccountName": "[concat(toLower(parameters('baseName')), uniquestring(resourceGroup().id))]",
+          "vmName": "[concat(parameters('baseName'),'-vm')]",
+          "virtualNetworkName": "[concat(parameters('baseName'),'-vnet')]",
+          "nicName": "[concat(variables('vmName'),'-nic1')]",
+          "nsgName": "[concat(parameters('baseName'),'-nsg')]",
+          "addressPrefix": "10.0.0.0/22",
+          "bastionPrefix": "10.1.0.0/24",
+          "subnetName": "sub",
+          "bastionSubnetName": "AzureBastionSubnet",
+          "subnetPrefix": "10.0.0.0/24",
+          "bastionSubnetPrefix": "10.1.0.0/26",          
+          "bastionHostName": "bs-deploy",
+          "publicIPAddressName": "[concat(variables('vmName'),'-pubip')]",
+          "bastionIPAddressName": "[concat(variables('bastionHostName'),'-pubip')]",
+          "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
+          "dnsLabelPrefix": "[concat(toLower(variables('vmName')), substring(uniqueString( resourceGroup().id ), 0, 5))]",
+          "_artifactsLocation": "[deployment().properties.templateLink.uri]"
+     },
+     "resources": [
+          {
+               "type": "Microsoft.Storage/storageAccounts",
+               "apiVersion": "2018-11-01",
+               "name": "[variables('storageAccountName')]",
+               "location": "[parameters('location')]",
+               "sku": {
+                    "name": "Standard_LRS"
+               },
+               "kind": "Storage",
+               "properties": {
+                    "supportsHttpsTrafficOnly": "true"
+               }
+          },
+          {
+               "type": "Microsoft.Network/publicIPAddresses",
+               "apiVersion": "2019-09-01",
+               "name": "[variables('publicIPAddressName')]",
+               "location": "[parameters('location')]",
+               "properties": {
+                    "publicIPAllocationMethod": "Dynamic",
+                    "dnsSettings": {
+                         "domainNameLabel": "[variables('dnsLabelPrefix')]"
+                    }
+               }
+          },
+          {
+             "apiVersion": "2019-02-01",
+             "type": "Microsoft.Network/publicIpAddresses",
+             "name": "[variables('bastionIPAddressName')]",
+             "location": "[parameters('location')]",
+             "sku": {
+                 "name": "Standard"
+             },
+             "properties": {
+                 "publicIPAllocationMethod": "Static"
+             }
+          },
+          {
+               "type": "Microsoft.Network/virtualNetworks",
+               "apiVersion": "2019-09-01",
+               "name": "[variables('virtualNetworkName')]",
+               "location": "[parameters('location')]",
+               "properties": {
+                    "addressSpace": {
+                         "addressPrefixes": [
+                              "[variables('addressPrefix')]",
+                              "[variables('bastionPrefix')]"
+                         ]
+                    },
+                    "subnets": [
+                         {
+                              "name": "[variables('subnetName')]",
+                              "properties": {
+                                   "addressPrefix": "[variables('subnetPrefix')]"
+                              }
+                         }
+                    ]
+               }
+          },
+          {
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "apiVersion": "2020-05-01",
+            "name": "[variables('nsgName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "securityRules": [
+                    {
+                        "name": "RDP_Deny",
+                        "properties": {
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3389",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 180,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "SSH_Deny",
+                        "properties": {
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 190,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Allow_HTTPS_Inbound",
+                        "properties": {
+                            "description": "https://docs.microsoft.com/en-us/azure/bastion/bastion-nsg",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
+                            "sourceAddressPrefix": "Internet",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 170,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Allow_Bastion_Subnet",
+                        "properties": {
+                            "description": "https://docs.microsoft.com/en-us/azure/bastion/bastion-nsg",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "sourceAddressPrefix": "[variables('bastionSubnetPrefix')]",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [
+                                "22",
+                                "3389"
+                            ],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Azure_Bastion_Data_Plane",
+                        "properties": {
+                            "description": "https://docs.microsoft.com/en-us/azure/bastion/bastion-nsg",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 130,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [
+                                "8080",
+                                "5701"
+                            ],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "Allow_Bastion_Communication_Outbound",
+                        "properties": {
+                            "description": "https://docs.microsoft.com/en-us/azure/bastion/bastion-nsg",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 120,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [
+                                "8080",
+                                "5701"
+                            ],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "GatewayManager_443_HTTPS_Allow",
+                        "properties": {
+                            "description": "https://docs.microsoft.com/en-us/azure/bastion/bastion-nsg",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "443",
+                            "sourceAddressPrefix": "GatewayManager",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 120,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            }
+          },
+          {
+               "type": "Microsoft.Network/networkInterfaces",
+               "apiVersion": "2019-07-01",
+               "name": "[variables('nicName')]",
+               "location": "[parameters('location')]",
+               "dependsOn": [
+                    "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
+                    "[resourceId('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+                    "[resourceId('Microsoft.Network/networkSecurityGroups/', variables('nsgName'))]"
+               ],
+               "properties": {
+                    "ipConfigurations": [
+                         {
+                              "name": "ipconfig1",
+                              "properties": {
+                                   "privateIPAllocationMethod": "Dynamic",
+                                   "publicIPAddress": {
+                                        "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
+                                   },
+                                   "subnet": {
+                                        "id": "[variables('subnetRef')]"
+                                   }
+                              }
+                         }
+                    ],
+                    "networkSecurityGroup": {
+                          "id": "[resourceId('Microsoft.Network/networkSecurityGroups/', variables('nsgName'))]"
+                    }
+               }
+          },
+          {
+               "type": "Microsoft.Compute/virtualMachines",
+               "apiVersion": "2019-07-01",
+               "name": "[variables('vmName')]",
+               "location": "[parameters('location')]",
+               "dependsOn": [
+                    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+                    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+               ],
+               "properties": {
+                    "hardwareProfile": {
+                         "vmSize": "Standard_D2_v2"
+                    },
+                    "osProfile": {
+                         "computerName": "[variables('vmName')]",
+                         "adminUsername": "[parameters('adminUsername')]",
+                         "adminPassword": "[parameters('adminPassword')]"
+                    },
+                    "storageProfile": {
+                         "imageReference": {
+                              "publisher": "MicrosoftWindowsDesktop",
+                              "offer": "Windows-10",
+                              "sku": "[parameters('sku')]",
+                              "version": "latest"
+                         },
+                         "osDisk": {
+                              "createOption": "FromImage",
+                              "managedDisk": {
+                                   "storageAccountType": "StandardSSD_LRS"
+                              }
+                         },
+                         "dataDisks": [
+                              {
+                                   "diskSizeGB": 256,
+                                   "lun": 0,
+                                   "createOption": "Empty"
+                              }
+                         ]
+                    },
+                    "networkProfile": {
+                         "networkInterfaces": [
+                              {
+                                   "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+                              }
+                         ]
+                    },
+                    "diagnosticsProfile": {
+                         "bootDiagnostics": {
+                              "enabled": true,
+                              "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]"
+                         }
+                    }
+               }
+          },
+          {
+               "apiVersion": "2018-04-01",
+               "type": "Microsoft.Network/virtualNetworks/subnets",
+               "name": "[concat(variables('virtualNetworkName'), '/', variables('bastionSubnetName'))]",
+               "location": "[parameters('location')]",
+               "dependsOn": [
+                    "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
+                ],
+               "properties": {
+               "addressPrefix": "[variables('bastionSubnetPrefix')]"
+             }
+           },
+           {
+                "apiVersion": "2020-05-01",
+                "type": "Microsoft.Network/bastionHosts",
+                "name": "[variables('bastionHostName')]",
+                "location": "[parameters('location')]",
+                "dependsOn": [
+                    "[resourceId('Microsoft.Network/publicIpAddresses', variables('bastionIPAddressName'))]",
+                    "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
+                    "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('bastionSubnetName'))]"
+                ],
+                "properties": {
+                    "ipConfigurations": [
+                        {
+                            "name": "IpConf",
+                            "properties": {
+                                "subnet": {
+                                    "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('bastionSubnetName'))]"
+                                },
+                                "publicIPAddress": {
+                                    "id": "[resourceId('Microsoft.Network/publicIpAddresses', variables('bastionIPAddressName'))]"
+                                }
+                            }
+                        }
+                    ]
+                }
+           }
+     ],
+     "outputs": {
+          "RDPConnectionDetails": {
+               "type": "string",
+               "value": "[concat(reference(variables('publicIPAddressName')).dnsSettings.fqdn, ':', parameters('rdpPort'))]"
+          }
+     }
+}
