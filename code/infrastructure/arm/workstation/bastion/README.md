@@ -1,8 +1,8 @@
 # Deploy Azure Bastion Service in an Azure Virtual Network with Deployment VM
 
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FQuisitive%2Fortad%2Fmain%2Fcode%2Finfrastructure%2Farm%2Fworkstation%2Fbastion%2Fazuredeploy.json)
-[![Visualize](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FQuisitive%2Fortad%2Fmain%2Fcode%2Finfrastructure%2Farm%2Fworkstation%2Fbastion%2Fazuredeploy.json)
+[![Deploy To Azure](../../../../../md/articles/media/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FQuisitive%2Fortad%2Fmain%2Fcode%2Finfrastructure%2Farm%2Fworkstation%2Fbastion%2Fazuredeploy.json)
+[![Visualize](../../../../../md/articles/media/visualizebutton.svg?sanitize=true)](http://armviz.io/#/?load=https%3A%2F%2Fraw.githubusercontent.com%2FQuisitive%2Fortad%2Fmain%2Fcode%2Finfrastructure%2Farm%2Fworkstation%2Fbastion%2Fazuredeploy.json)
 
 This template will deploy Azure Bastion in a new or existing Azure Virtual Network, along with dependent resources:
 
