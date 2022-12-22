@@ -92,7 +92,7 @@
         "publicIPAddressName": "[concat('pip-', parameters('bastion-host-name'), '-deploy')]",
         "nicName": "[concat('nic1-', variables('vmName'), '-deploy')]",
         "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
-        "virtualNetworkName": "[parameters('vnet-name')]",
+        "virtualNetworkName": "[concat('vnet-', parameters('baseName'),'-deploy')]",
         "bastion-subnet-name": "AzureBastionSubnet",
         "storageAccountName": "[concat(toLower(parameters('baseName')), uniquestring(resourceGroup().id))]",
         "vmName": "[concat('vnet-', parameters('baseName'),'-vm')]",
