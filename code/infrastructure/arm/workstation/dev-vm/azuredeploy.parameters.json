@@ -1,0 +1,37 @@
+{
+     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+     "contentVersion": "1.0.0.0",
+     "parameters": {
+          "adminUsername": {
+               "value": "devAdmin"
+          },
+          "adminPassword": {
+               "value": "change-me-N0W!"
+          },
+          "baseName": {
+               "value": "company tag",
+               "metadata": {
+                    "description": "Base name string used for naming resources such as the VM Name, NIC, Public IP etc."
+               }
+          },
+          "rdpPort": {
+               "value": 3389,
+               "metadata": {
+                    "description": "TCP port for RDP connection. Default should be 3389. Acceptable value between 0 and 65535."
+               }
+          },
+          "location": {
+               "value": "",
+               "metadata": {
+                    "description": "The location for the resources"
+               }
+          },
+          "vm-sku": {
+               "value": "22H2",
+               "metadata": {
+                    "direction": "This is the SKU value such as 22H2, selecting the Windows build to install."
+               }
+          }
+
+     }
+}
