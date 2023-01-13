@@ -62,6 +62,7 @@ try
      choco install azure-cli -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"                   # Azure CLI 2.44.1                      Dependency: None
      choco install azure-functions-core-tools -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"  # Azure Function Core Tools 4.0.4915    Dependency: None
      choco install azcopy10 -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"                    # Azure Copy 10.16.2                    Dependency: None
+     choco install bicep -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"                      # Azure Copy 10.16.2                    Dependency: None
 
      Write-Host ''
      Write-Host 'GitHub Resources'
@@ -78,6 +79,9 @@ try
      choco install vscode-azurerm-tools -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"        # VS Code ARM Tools Extension 1.0.0.x   Dependency: vscode > 1.2.0
      choco install vscode-vsonline -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"             # VS Code Codespaces Extension 1.0.x    Dependency: chocolatey-core.extension
      choco install vscode-azurerepos -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"           # VS Code Azure Repos Extension 1.161.1 Dependency: chocolatey-core.extension
+     choco install vscode-yaml -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"                 # VS Code YAML Deploy to Azure          Dependency: chocolatey-core.extension
+     choco install azureaccount-vscode -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"         # VS Code Azure Account                 Dependency: chocolatey-core.extension
+     choco install vscode-markdown-all-in-one -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"  # VS Code Markdown All-in-One           Dependency: chocolatey-core.extension
 
      choco install office365proplus -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"            # Office 365 ProPlus 15330.20231        Dependency: None
 
