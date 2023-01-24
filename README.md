@@ -47,6 +47,29 @@ After the VM is deployed, click on the followng button to install standard devel
     - vscode-azurerepos
   - office365proplus
 
+### Git Configuration
+Remember to set up your global git settings when you first set up code on your Bastion VM.  The following information will help you through this process.
+
+#### To set your global username/email configuration:
+Open the command line.
+
+To set repository-specific username/email configuration: 
+
+1. Set your username:
+```
+git config user.name "FIRST_NAME LAST_NAME"
+```
+2. Set your email address:
+```
+git config user.email "MY_NAME@example.com"
+```
+3. Verify your configuration by displaying your configuration file:
+```
+cat .git/config
+```
+
+For more information, refer to the git documentation.
+
 
 ```
 Tags: bastion, ortad, onramp, dpi30
