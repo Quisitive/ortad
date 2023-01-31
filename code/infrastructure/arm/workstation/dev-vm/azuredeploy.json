@@ -93,6 +93,18 @@
                }
           },
           {
+               "apiVersion": "2019-02-01",
+               "type": "Microsoft.Network/publicIpAddresses",
+               "name": "[variables('bastionIPAddressName')]",
+               "location": "[parameters('location')]",
+               "sku": {
+                    "name": "Standard"
+               },
+               "properties": {
+                    "publicIPAllocationMethod": "Static"
+               }
+          },          
+          {
                "type": "Microsoft.Network/virtualNetworks",
                "apiVersion": "2019-09-01",
                "name": "[variables('virtualNetworkName')]",
