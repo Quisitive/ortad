@@ -22,15 +22,6 @@
                     "description": "Base name string used for naming resources such as the VM Name, NIC, Public IP etc."
                }
           },
-          "rdpPort": {
-               "type": "int",
-               "defaultValue": 3389,
-               "minValue": 0,
-               "maxValue": 65535,
-               "metadata": {
-                    "description": "TCP port for RDP connection. Default should be 3389. Acceptable value between 0 and 65535."
-               }
-          },
           "location": {
                "metadata": {
                     "description": "The location for the resources"
@@ -412,9 +403,5 @@
           }
      ],
      "outputs": {
-          "RDPConnectionDetails": {
-               "type": "string",
-               "value": "[concat(reference(variables('publicIPAddressName')).dnsSettings.fqdn, ':', parameters('rdpPort'))]"
-          }
      }
 }
