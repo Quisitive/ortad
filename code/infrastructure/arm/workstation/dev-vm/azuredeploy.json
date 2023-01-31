@@ -73,7 +73,6 @@
           "subnetPrefix": "10.0.0.0/24",
           "bastionSubnetPrefix": "10.1.0.0/26",
           "bastionHostName": "bs-deploy",
-          "publicIPAddressName": "[concat(variables('vmName'),'-pubip')]",
           "bastionIPAddressName": "[concat(variables('bastionHostName'),'-pubip')]",
           "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
           "dnsLabelPrefix": "[concat(toLower(variables('vmName')), substring(uniqueString( resourceGroup().id ), 0, 5))]",
@@ -91,30 +90,6 @@
                "kind": "Storage",
                "properties": {
                     "supportsHttpsTrafficOnly": "true"
-               }
-          },
-          {
-               "type": "Microsoft.Network/publicIPAddresses",
-               "apiVersion": "2019-09-01",
-               "name": "[variables('publicIPAddressName')]",
-               "location": "[parameters('location')]",
-               "properties": {
-                    "publicIPAllocationMethod": "Dynamic",
-                    "dnsSettings": {
-                         "domainNameLabel": "[variables('dnsLabelPrefix')]"
-                    }
-               }
-          },
-          {
-               "apiVersion": "2019-02-01",
-               "type": "Microsoft.Network/publicIpAddresses",
-               "name": "[variables('bastionIPAddressName')]",
-               "location": "[parameters('location')]",
-               "sku": {
-                    "name": "Standard"
-               },
-               "properties": {
-                    "publicIPAllocationMethod": "Static"
                }
           },
           {
@@ -285,7 +260,6 @@
                "name": "[variables('nicName')]",
                "location": "[parameters('location')]",
                "dependsOn": [
-                    "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
                     "[resourceId('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
                     "[resourceId('Microsoft.Network/networkSecurityGroups/', variables('nsgName'))]"
                ],
@@ -295,9 +269,6 @@
                               "name": "ipconfig1",
                               "properties": {
                                    "privateIPAllocationMethod": "Dynamic",
-                                   "publicIPAddress": {
-                                        "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
-                                   },
                                    "subnet": {
                                         "id": "[variables('subnetRef')]"
                                    }
