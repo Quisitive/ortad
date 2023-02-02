@@ -42,7 +42,7 @@
                     "canadacentral",
                     "canadaeast"
                ],
-               "defaultValue": "eastus"
+               "defaultValue": "[resourceGroup().location]"
           },
           "sku": {
                "metadata": {
@@ -58,6 +58,17 @@
                     "20h1-pro"
                ],
                "defaultValue": "win10-22h2-pro"
+          },
+          "vm-size": {
+               "type": "string",
+               "defaultValue": "Standard_D2_v2",
+               "allowedValues": [
+                    "Standard_D2_v2",
+                    "Standard_D4_v2"
+               ],
+               "metadata": {
+                    "description": "VM size"
+               }
           }
      },
      "variables": {
@@ -81,7 +92,7 @@
      "resources": [
           {
                "type": "Microsoft.Storage/storageAccounts",
-               "apiVersion": "2018-11-01",
+               "apiVersion": "2022-09-01",
                "name": "[variables('storageAccountName')]",
                "location": "[parameters('location')]",
                "sku": {
@@ -93,7 +104,7 @@
                }
           },
           {
-               "apiVersion": "2019-02-01",
+               "apiVersion": "2022-07-01",
                "type": "Microsoft.Network/publicIpAddresses",
                "name": "[variables('bastionIPAddressName')]",
                "location": "[parameters('location')]",
@@ -106,7 +117,7 @@
           },          
           {
                "type": "Microsoft.Network/virtualNetworks",
-               "apiVersion": "2019-09-01",
+               "apiVersion": "2022-07-01",
                "name": "[variables('virtualNetworkName')]",
                "location": "[parameters('location')]",
                "properties": {
@@ -128,7 +139,7 @@
           },
           {
                "type": "Microsoft.Network/networkSecurityGroups",
-               "apiVersion": "2020-05-01",
+               "apiVersion": "2022-07-01",
                "name": "[variables('nsgName')]",
                "location": "[parameters('location')]",
                "properties": {
@@ -143,11 +154,7 @@
                                    "destinationAddressPrefix": "*",
                                    "access": "Deny",
                                    "priority": 180,
-                                   "direction": "Inbound",
-                                   "sourcePortRanges": [],
-                                   "destinationPortRanges": [],
-                                   "sourceAddressPrefixes": [],
-                                   "destinationAddressPrefixes": []
+                                   "direction": "Inbound"
                               }
                          },
                          {
@@ -160,11 +167,7 @@
                                    "destinationAddressPrefix": "*",
                                    "access": "Deny",
                                    "priority": 190,
-                                   "direction": "Inbound",
-                                   "sourcePortRanges": [],
-                                   "destinationPortRanges": [],
-                                   "sourceAddressPrefixes": [],
-                                   "destinationAddressPrefixes": []
+                                   "direction": "Inbound"
                               }
                          },
                          {
@@ -178,11 +181,7 @@
                                    "destinationAddressPrefix": "*",
                                    "access": "Allow",
                                    "priority": 170,
-                                   "direction": "Inbound",
-                                   "sourcePortRanges": [],
-                                   "destinationPortRanges": [],
-                                   "sourceAddressPrefixes": [],
-                                   "destinationAddressPrefixes": []
+                                   "direction": "Inbound"
                               }
                          },
                          {
@@ -196,13 +195,10 @@
                                    "access": "Allow",
                                    "priority": 100,
                                    "direction": "Inbound",
-                                   "sourcePortRanges": [],
                                    "destinationPortRanges": [
                                         "22",
                                         "3389"
-                                   ],
-                                   "sourceAddressPrefixes": [],
-                                   "destinationAddressPrefixes": []
+                                   ]
                               }
                          },
                          {
@@ -216,13 +212,10 @@
                                    "access": "Allow",
                                    "priority": 130,
                                    "direction": "Inbound",
-                                   "sourcePortRanges": [],
                                    "destinationPortRanges": [
                                         "8080",
                                         "5701"
-                                   ],
-                                   "sourceAddressPrefixes": [],
-                                   "destinationAddressPrefixes": []
+                                   ]
                               }
                          },
                          {
@@ -236,13 +229,10 @@
                                    "access": "Allow",
                                    "priority": 120,
                                    "direction": "Outbound",
-                                   "sourcePortRanges": [],
                                    "destinationPortRanges": [
                                         "8080",
                                         "5701"
-                                   ],
-                                   "sourceAddressPrefixes": [],
-                                   "destinationAddressPrefixes": []
+                                   ]
                               }
                          },
                          {
@@ -256,11 +246,7 @@
                                    "destinationAddressPrefix": "*",
                                    "access": "Allow",
                                    "priority": 120,
-                                   "direction": "Inbound",
-                                   "sourcePortRanges": [],
-                                   "destinationPortRanges": [],
-                                   "sourceAddressPrefixes": [],
-                                   "destinationAddressPrefixes": []
+                                   "direction": "Inbound"
                               }
                          }
                     ]
@@ -268,7 +254,7 @@
           },
           {
                "type": "Microsoft.Network/networkInterfaces",
-               "apiVersion": "2019-07-01",
+               "apiVersion": "2022-07-01",
                "name": "[variables('nicName')]",
                "location": "[parameters('location')]",
                "dependsOn": [
@@ -294,7 +280,7 @@
           },
           {
                "type": "Microsoft.Compute/virtualMachines",
-               "apiVersion": "2019-07-01",
+               "apiVersion": "2022-11-01",
                "name": "[variables('vmName')]",
                "location": "[parameters('location')]",
                "dependsOn": [
@@ -303,7 +289,7 @@
                ],
                "properties": {
                     "hardwareProfile": {
-                         "vmSize": "Standard_D2_v2"
+                         "vmSize": "[parameters('vm-size')]"
                     },
                     "osProfile": {
                          "computerName": "[variables('vmName')]",
@@ -347,7 +333,7 @@
                }
           },
           {
-               "apiVersion": "2018-04-01",
+               "apiVersion": "2022-07-01",
                "type": "Microsoft.Network/virtualNetworks/subnets",
                "name": "[concat(variables('virtualNetworkName'), '/', variables('bastionSubnetName'))]",
                "location": "[parameters('location')]",
@@ -359,7 +345,7 @@
                }
           },
           {
-               "apiVersion": "2020-05-01",
+               "apiVersion": "2022-07-01",
                "type": "Microsoft.Network/bastionHosts",
                "name": "[variables('bastionHostName')]",
                "location": "[parameters('location')]",

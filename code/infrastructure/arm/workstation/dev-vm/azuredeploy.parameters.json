@@ -25,6 +25,12 @@
                "metadata": {
                     "direction": "This is the SKU value such as 22H2, selecting the Windows build to install."
                }
+          },
+          "vm-size": {
+               "value": "Standard_D2_v2",
+               "metadata": {
+                    "direction": "This is the VM Size value"
+               }
           }
 
      }
