@@ -15,7 +15,7 @@
                }
           },
           "location": {
-               "value": "[resourceGroup().location]",
+               "value": "",
                "metadata": {
                     "description": "The location for the resources"
                }
