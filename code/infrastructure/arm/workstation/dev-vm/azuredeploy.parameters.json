@@ -21,7 +21,7 @@
                }
           },
           "vm-sku": {
-               "value": "22H2",
+               "value": "win10-22h2-pro",
                "metadata": {
                     "direction": "This is the SKU value such as 22H2, selecting the Windows build to install."
                }

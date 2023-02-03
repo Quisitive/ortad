@@ -44,7 +44,7 @@
                ],
                "defaultValue": "[resourceGroup().location]"
           },
-          "sku": {
+          "vm-sku": {
                "metadata": {
                     "description": "The Windows build version such as win10-22h2-pro"
                },
@@ -300,7 +300,7 @@
                          "imageReference": {
                               "publisher": "MicrosoftWindowsDesktop",
                               "offer": "Windows-10",
-                              "sku": "[parameters('sku')]",
+                              "sku": "[parameters('vm-sku')]",
                               "version": "latest"
                          },
                          "osDisk": {
