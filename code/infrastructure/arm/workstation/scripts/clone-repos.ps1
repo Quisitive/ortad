@@ -12,10 +12,8 @@ function CreatePathIfNotExists($pathName) {
 #
 $repoCoreDir = "C:\repos"
 CreatePathIfNotExists -pathName "$repoCoreDir"
-CreatePathIfNotExists -pathName "$repoCoreDir\github"
-CreatePathIfNotExists -pathName "$repoCoreDir\azdo"
-CreatePathIfNotExists -pathName "$repoCoreDir\github\AzureArchitecture"
+CreatePathIfNotExists -pathName "$repoCoreDir\azure-deploy"
 
-cd "$repoCoreDir\github\AzureArchitecture"
-git clone https://github.com/AzureArchitecture/azure-deploy.git
-git clone https://github.com/AzureArchitecture/azure-data-services.git
+cd "$repoCoreDir\azure-deploy"
+git clone https://github.com/Quisitive/ADAP.git
+# git clone https://github.com/AzureArchitecture/azure-data-services.git
