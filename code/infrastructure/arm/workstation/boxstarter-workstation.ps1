@@ -110,12 +110,12 @@ try
      $ENV:PATH = "$ENV:PATH;C:\Program Files\Git\bin;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy;"
      Write-Host ''
 
-     $repoCoreDir = "C:\repos"
-     CreatePathIfNotExists -pathName "$repoCoreDir"
-     CreatePathIfNotExists -pathName "$repoCoreDir\azure-deploy"
+     #$repoCoreDir = "C:\repos"
+     #CreatePathIfNotExists -pathName "$repoCoreDir"
+     #CreatePathIfNotExists -pathName "$repoCoreDir\azure-deploy"
      
-     cd "$repoCoreDir\azure-deploy"
-     git clone https://github.com/Quisitive/ADAP.git
+     #cd "$repoCoreDir\azure-deploy"
+     #git clone https://github.com/Quisitive/ADAP.git
        
      ######################################################
      # installing windows updates
