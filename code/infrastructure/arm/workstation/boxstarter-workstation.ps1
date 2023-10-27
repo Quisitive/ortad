@@ -88,8 +88,6 @@ try
      choco install azure-data-studio -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"                # Azure Data Studio 1.46.0              Dependency: None
      choco install microsoftazurestorageexplorer -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"    # Azure Data Studio 1.46.0              Dependency: None
 
-     choco install office365proplus -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"            # Office 365 ProPlus 15330.20231        Dependency: None
-     choco install paint.net -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"                   # Paint.NET 5.0.10                      Dependency: None                        Use: Documentation
      choco install typora -y --cacheLocation "$env:UserProfile\AppData\Local\ChocoCache"                      # Typora (Install) 1.7.5                Dependency: None                        Use: Documentation
 
      Write-Host
