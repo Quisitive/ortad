@@ -94,37 +94,6 @@ try
 
      Write-Host
 
-     ######################################################
-     # Taskbar icons
-     ######################################################
-     Write-Host 'Adding Icons to the TaskBar'
-     Install-ChocolateyPinnedTaskBarItem 'C:\Windows\explorer.exe'
-
-     # %windir%\system32\cmd.exe
-
-     ######################################################
-     # Add to the path
-     ######################################################
-     Write-Host 'Adding Git\bin to the path'
-     Write-Host ''
-     $ENV:PATH = "$ENV:PATH;C:\Program Files\Git\bin;C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy;"
-     Write-Host ''
-
-     #$repoCoreDir = "C:\repos"
-     #CreatePathIfNotExists -pathName "$repoCoreDir"
-     #CreatePathIfNotExists -pathName "$repoCoreDir\azure-deploy"
-     
-     #cd "$repoCoreDir\azure-deploy"
-     #git clone https://github.com/Quisitive/ADAP.git
-       
-     ######################################################
-     # installing windows updates
-     ######################################################
-     Write-Output 'Installing Windows Updates'
-     Enable-MicrosoftUpdate
-     Install-WindowsUpdate -AcceptEula -GetUpdatesFromMS
-
-     Read-Host 'Restart required for some modifications to take effect. Please reboot.'
 }
 catch
 {
